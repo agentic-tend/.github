@@ -12,7 +12,5 @@ Agentic Tend develops lightweight, composable layers for tending agentic softwar
 
 ## Approach
 
-- Establish contracts before implementation.
-- Grow structure from observed needs and recurring failures.
-- Keep rules, skills, and hooks distinct by activation and enforcement.
-- Prefer small, composable layers over monolithic agent configurations.
+- [Agentic tooling](https://github.com/agentic-tend/.github/blob/main/docs/agentic-tooling.md) defines the shared philosophy and the boundaries between rules, skills, and hooks.
+- The [organization roadmap](https://github.com/agentic-tend/.github/blob/main/docs/roadmap.md) tracks evidence and extension work spanning multiple layers.
