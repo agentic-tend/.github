@@ -16,8 +16,10 @@ These items describe the prepared repository state. Publishing remains a maintai
 
 ## Behavioral evidence
 
-- [ ] Record representative explicit and implicit skill scenarios without leaking expected answers into the evaluator.
+- [ ] Record representative explicit and implicit skill scenarios without leaking expected answers into the evaluator, and pre-register a source-grounded objective and rubric.
 - [ ] Compare mixed code-and-prose tasks with pure-code negative controls.
+- [ ] Mine execution logs and maintainer feedback for real failure cases, then retain confirmed cases as regressions.
+- [ ] Calibrate automated graders and proxies against human judgment before using them as admission gates.
 - [ ] Add mechanical prose enforcement only after repeated misses and a reliable low-noise oracle.
 - [ ] Link each future context change to an observed need, non-inferable preference, durable contract, or repeated workflow.
 

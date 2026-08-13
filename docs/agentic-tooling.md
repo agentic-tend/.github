@@ -24,6 +24,14 @@ Minimal means minimum sufficient and lossless, not the fewest files or shortest 
 
 Generated structure and smaller diffs are evidence only when they improve an observable contract or remove a demonstrated cost.
 
+## Feedback before distillation
+
+Static instructions cannot enumerate the intelligence required by every future task. The scalable alternative is to preserve the goal and expose a feedback loop that lets the agent revise its working model: observe the actual system, form a falsifiable hypothesis, choose the cheapest discriminating probe, interpret the result, and repeat until the agreed evidence satisfies the goal.
+
+Feedback does not define the objective by itself. Humans still own semantic intent, taste, authority, and final empirical acceptance; tests, errors, logs, introspection, profiles, tools, and reviewers supply observations about progress toward that objective. A proxy that is easy to score may be wrong, and a passing check may show only agreement with its oracle.
+
+Persist the non-inferable objective, the reusable feedback-routing process, and a fact only when repeated evidence shows that retrieval is insufficient. Keep transient hypotheses and observations in the execution record. One surprising result should update the next probe, not automatically become a permanent rule.
+
 ## Knowledge and evidence flow
 
 ```text
@@ -72,9 +80,11 @@ The retired [`copier-coding-harness`](https://github.com/agentic-tend/copier-cod
 
 ## Evaluation
 
-Evaluate observable outcomes rather than file presence. Compare representative tasks before and after a context change against an explicit oracle, and attribute the result to the mechanism under test.
+Evaluate observable outcomes rather than file presence. Define the objective and oracle before inspecting outputs, use cases that resemble the intended task distribution, and retain enough execution evidence to explain what was observed. A comparison supports only the claim its design can identify: matching a frozen rubric does not establish that the rubric was correct or that one context mechanism caused the result.
 
-Use model compliance for semantic judgment and hooks or CI for conditions that are mechanically observable. Add enforcement only after repeated misses justify its maintenance and false-positive cost.
+Use model compliance for semantic judgment and hooks or CI for conditions that are mechanically observable. Calibrate automated scoring against human judgment, add newly observed failures to the regression set, and revise an invalid oracle instead of optimizing the agent against it. OpenAI's [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) similarly emphasize task-specific evaluation, continuous case collection, and human calibration; the guidance is a methodological reference, not an adopted service dependency.
+
+Before distilling a new instruction, require repeated failure under a source-grounded rubric, a minimal candidate, independent holdout evidence, and no material regression on adjacent tasks. If all compared arms pass, the bounded conclusion is that no need was observed in those scenarios. Add enforcement only after repeated misses justify its maintenance and false-positive cost.
 
 The [Tessl documentation](https://docs.tessl.io/) is a practical reference for reviewing agent context and using [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios) to test whether a skill changes output. It is a reference, not a project dependency or adopted benchmark.
 
