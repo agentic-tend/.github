@@ -1,6 +1,6 @@
 # Agentic Tend
 
-Agentic Tend develops a general agentic context model without encoding intelligence that general models can learn. [Software development](https://github.com/agentic-tend/skills/software-engineering) is its first complete domain realization.
+Agentic Tend develops a general agentic context model without encoding intelligence that general models can learn. [Software development](https://github.com/agentic-tend/skills/tree/main/software-engineering) is its first complete domain realization.
 
 `Tend` means caring for a growing system: preserve non-inferable objectives and preferences, add structure when evidence calls for it, and let projects retain their own shape.
 
