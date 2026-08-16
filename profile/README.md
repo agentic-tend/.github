@@ -1,26 +1,15 @@
 # Agentic Tend
 
-Agentic Tend develops a general agentic context model without encoding intelligence that general models can learn. [Software development](https://github.com/agentic-tend/skills/tree/main/software-engineering) is its first complete domain realization.
+Agentic Tend develops a general agentic context model without encoding intelligence that general models can learn.
 
 `Tend` means caring for a growing system: preserve non-inferable objectives and preferences, add structure when evidence calls for it, and let projects retain their own shape.
 
-## Knowledge and evidence flow
-
-> model capability -> L0 epistemology -> L1 domain realization -> L2 repository facts and contracts -> mechanical evidence
-
-Semantic ownership ends at L2; mechanical evidence is an executable projection of an observable contract.
-
-## Mechanisms
-
-- **AGENTS**: [unconditional cross-domain epistemology](../config/codex/AGENTS.global.md) at user scope and repository-specific ambient facts in each project.
-- [**Skills**](https://github.com/agentic-tend/skills): reusable workflows and domain realizations, including project-context bootstrapping, software engineering, and persistent prose.
-- **Human docs and decisions:** motivation, public theory, and evidence-backed durable rationale.
-- **Tests, hooks, and CI:** repository-owned mechanical evidence added when a reliable oracle exists.
-- **Generators:** explicit materialization justified by repeated deterministic pressure.
+Start from the request, current state, and observed evidence; derive the traits needed to select capabilities, then revise that selection as new evidence appears. A task may compose several capabilities at once; persistent context is added only when future readers or runtimes cannot reliably reconstruct what matters.
 
 ## Approach
 
-- [Agentic tooling](https://github.com/agentic-tend/.github/blob/main/docs/agentic-tooling.md) defines the motivation, semantic model, and activation mechanisms.
-- [Context ownership](https://github.com/agentic-tend/.github/blob/main/docs/context-ownership.md) routes persistent context to its narrowest sufficient owner.
-- [Development routing](https://github.com/agentic-tend/.github/blob/main/docs/development.md) routes contract, planning, durable-work, and execution uncertainty.
+- [Agentic tooling](https://github.com/agentic-tend/.github/blob/main/docs/agentic-tooling.md) defines the motivation, task loop, capability composition, and evaluation model.
+- [Context ownership](https://github.com/agentic-tend/.github/blob/main/docs/context-ownership.md) defines what to persist, where it belongs, and how it is activated or checked.
+- [Development composition](https://github.com/agentic-tend/.github/blob/main/docs/development.md) gives concrete examples without prescribing a fixed workflow.
+- [Skills](https://github.com/agentic-tend/skills) package reusable capabilities behind task-matching descriptions.
 - The [organization roadmap](https://github.com/agentic-tend/.github/blob/main/docs/roadmap.md) tracks evidence and extension work spanning multiple layers.

@@ -24,68 +24,71 @@ Minimal means minimum sufficient and lossless, not the fewest files or shortest 
 
 Generated structure and smaller diffs are evidence only when they improve an observable contract or remove a demonstrated cost.
 
-## Feedback before distillation
+## Task data and dispatch metadata
 
-Static instructions cannot enumerate the intelligence required by every future task. The scalable alternative is to preserve the goal and expose a feedback loop that lets the agent revise its working model: observe the actual system, form a falsifiable hypothesis, choose the cheapest discriminating probe, interpret the result, and repeat until the agreed evidence satisfies the goal.
-
-Feedback does not define the objective by itself. Humans still own semantic intent, taste, authority, and final empirical acceptance; tests, errors, logs, introspection, profiles, tools, and reviewers supply observations about progress toward that objective. A proxy that is easy to score may be wrong, and a passing check may show only agreement with its oracle.
-
-Persist the non-inferable objective, the reusable feedback-routing process, and a fact only when repeated evidence shows that retrieval is insufficient. Keep transient hypotheses and observations in the execution record. One surprising result should update the next probe, not automatically become a permanent rule.
-
-## Knowledge and evidence flow
-
-```text
-model capability
-    -> L0 cross-domain epistemology
-    -> L1 conditional domain realization
-    -> L2 repository facts and contracts
-    -> mechanical oracle
+```mermaid
+flowchart LR
+    A[Task data] --> B[Derive dispatch traits]
+    B --> C[Compose capabilities]
+    C --> D[Action and evidence]
+    D --> E[Update task data]
+    E --> B
 ```
 
-- Model capability supplies general intelligence that should not be copied into project policy.
-- L0 records unconditional cross-domain reasoning preferences and the smallest authority and routing appendix.
-- L1 skills realize those preferences for a domain or workflow, such as [software engineering](https://github.com/agentic-tend/skills/tree/main/software-engineering) or [persistent prose](https://github.com/agentic-tend/skills/tree/main/structure-documentation).
-- L2 repository context records what is true or required specifically in one project.
-- Tests, CI, and hooks verify mechanically observable conditions without asking the model to remember them.
+Task data includes the request, current files, runtime state, observed evidence, and established contracts. Dispatch traits are metadata derived from that data to select relevant capabilities. Once an action produces new evidence, that evidence joins the task data and the traits are derived again.
 
-Semantic ownership ends at L2. The mechanical oracle closes the flow as an executable projection of the observable contract; it is not another semantic owner. This flow answers what deserves encoding and how it becomes evidence, without replacing the activation mechanisms below.
+Metadata is a view, not a second source of truth. When a summary or classification conflicts with current files or an observed result, update the view from the evidence.
+
+A task can expose several traits at once. The final column applies all six traits to one mixed task: refactor a Julia API and update the docstring required by its contract.
+
+| Trait | Meaning | Example in one mixed Julia refactor |
+| --- | --- | --- |
+| Object | The state or files involved | The API method, related state, and its docstring |
+| Action | The requested transformation or judgment | Refactor behavior and update the durable prose |
+| Concern | An independent aspect of the task that requires its own judgment | Software behavior, Julia semantics, and persistent prose |
+| Contract | The meaning or observable behavior that must remain true | Public API semantics and failure behavior |
+| Evidence | Observations that distinguish success, failure, or competing hypotheses | Focused tests and rendered documentation |
+| Uncertainty and authority | What remains unknown and who or what can resolve it | Source resolves implementation facts; the user resolves behavior-changing choices |
+
+Traits describe the task without naming the capabilities selected to handle it. Dispatch matches those descriptive traits against capability predicates.
+
+Whether a derived view should be stored, where durable context belongs, and how it is loaded are separate questions owned by the [context ownership model](context-ownership.md).
 
 ## Intellectual influences
 
 The L0 reasoning principles distill several compatible but non-identical traditions:
 
-- Yang Chen-Ning's preference for plain, substantial work, summarized by "宁拙毋巧, 宁朴毋华", supports derivation and robustness over display or tricks. Tsinghua's account of his [permeative learning](https://www.tsinghua.edu.cn/info/3225/121939.htm) also motivates gradual immersion: continue through partial understanding while increasingly constraining observations connect points into a whole. See also Tsinghua's account of his [plain research style](https://www.tsinghua.edu.cn/info/3225/121987.htm).
-- Grothendieck's rising-sea image describes problems becoming natural as a surrounding conceptual world develops. McLarty's [The Rising Sea](https://ncatlab.org/nlab/files/McLartyRisingSea.pdf) documents that method. Agentic Tend inherits the preference for structural derivation and gradual immersion, but not unconditional generalization: a larger theory must still answer concrete pressure and state its cost.
+- Yang Chen-Ning's preference for plain, substantial work, summarized by "宁拙毋巧, 宁朴毋华", supports derivation and robustness over display or tricks. His permeative learning also motivates gradual immersion: continue through partial understanding while increasingly constraining observations connect points into a whole.[^yang-style]
+- Grothendieck's rising-sea image describes problems becoming natural as a surrounding conceptual world develops.[^rising-sea] Agentic Tend inherits the preference for structural derivation and gradual immersion, but not unconditional generalization: a larger theory must still answer concrete pressure and state its cost.
 
-For **algorithms**, the shared route starts with exhaustive enumeration or the simplest complete baseline, identifies redundant computation, and derives the minimum structure that removes it. For **data structures**, it begins with primitive storage and derives a new representation from expensive operations. For **mathematics and physics**, it names the obstruction or insufficiency before introducing the concept that resolves it. These are domain realizations of the same epistemology, not separate ambient rules.
+<details>
+<summary>Examples across domains</summary>
 
-## Mechanisms
+- For **algorithms**, the shared route starts with exhaustive enumeration or the simplest complete baseline, identifies redundant computation, and derives the minimum structure that removes it.
+- For **data structures**, it begins with primitive storage and derives a new representation from expensive operations.
+- For **mathematics and physics**, it names the obstruction or insufficiency before introducing the concept that resolves it.
 
-| Mechanism               | Activation                                            | Primary role                                                       | Enforcement               |
-| ----------------------- | ----------------------------------------------------- | ------------------------------------------------------------------ | ------------------------- |
-| Rules                   | Loaded from the applicable user or repository scope   | Declare unconditional epistemology or local ambient context        | Interpreted by the agent  |
-| Skills                  | Discovered by metadata and loaded when a task matches | Package reusable workflows, domain taste, expertise, and resources | Interpreted by the agent  |
-| Human docs or decisions | Retrieved when their question or rationale matters    | Preserve motivation, public theory, and durable rationale          | Interpreted by the reader |
-| Hooks, tests, or CI     | Triggered by a defined event                          | Observe, automate, or block mechanically testable behavior         | Executed by tooling       |
-| Generators              | Invoked explicitly                                    | Materialize repeated deterministic structure                       | Executed by tooling       |
-
-These mechanisms differ by activation and enforcement rather than importance. A generator is not a policy owner: its output must still belong to a user, repository, skill, decision, or mechanical boundary.
+These examples realize the same epistemology; they do not define an exhaustive task taxonomy.
+</details>
 
 ## Navigation
 
-- The [development routing model](development.md) routes contract, planning, durable-work, and execution uncertainty.
+- The [development capability model](development.md) shows how several concerns can dispatch together without prescribing a fixed reasoning trajectory.
 - The [organization roadmap](roadmap.md) tracks changes that coordinate more than one semantic owner or activation mechanism.
-
-The retired [`copier-coding-harness`](https://github.com/agentic-tend/copier-coding-harness) remains historical. [`bootstrap-project-context`](https://github.com/agentic-tend/skills/tree/main/bootstrap-project-context) replaces its generic repository scaffold with inspection, pressure testing, and the minimum sufficient local result.
 
 ## Evaluation
 
-Evaluate observable outcomes rather than file presence. Define the objective and oracle before inspecting outputs, use cases that resemble the intended task distribution, and retain enough execution evidence to explain what was observed. A comparison supports only the claim its design can identify: matching a frozen rubric does not establish that the rubric was correct or that one context mechanism caused the result.
+File presence measures maintenance activity, not whether context improved the task. Treat a context change as an intervention: define the observable outcome first, then test whether the smallest candidate improves representative work.
 
-Use model compliance for semantic judgment and hooks or CI for conditions that are mechanically observable. Calibrate automated scoring against human judgment, add newly observed failures to the regression set, and revise an invalid oracle instead of optimizing the agent against it. OpenAI's [evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) similarly emphasize task-specific evaluation, continuous case collection, and human calibration; the guidance is a methodological reference, not an adopted service dependency.
+- State the intended task distribution, success condition, and stopping evidence before inspecting outputs.
+- Form a working hypothesis and compare the smallest context candidate with a baseline using the cheapest evidence that distinguishes the live alternatives.
+- Use model or human judgment for semantic outcomes and executable checks for mechanical conditions; calibrate automated proxies against human judgment.
+- Preserve enough evidence to distinguish a wrong implementation from an invalid check, environment drift, or noise, then retain confirmed failures as regression cases.
+- Distill a new instruction or add enforcement only after repeated misses justify its maintenance and no material regression appears on adjacent tasks.
 
-Before distilling a new instruction, require repeated failure under a source-grounded rubric, a minimal candidate, independent holdout evidence, and no material regression on adjacent tasks. If all compared arms pass, the bounded conclusion is that no need was observed in those scenarios. Add enforcement only after repeated misses justify its maintenance and false-positive cost.
-
-The [Tessl documentation](https://docs.tessl.io/) is a practical reference for reviewing agent context and using [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios) to test whether a skill changes output. It is a reference, not a project dependency or adopted benchmark.
+Scenario evaluations are one practical implementation of this method.[^scenario-evaluations]
 
 [^bitter-lesson]: Richard Sutton, [*The Bitter Lesson*](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
+[^yang-style]: Tsinghua documents Yang's [permeative learning](https://www.tsinghua.edu.cn/info/3225/121939.htm) and [plain research style](https://www.tsinghua.edu.cn/info/3225/121987.htm).
+[^rising-sea]: McLarty's [*The Rising Sea*](https://ncatlab.org/nlab/files/McLartyRisingSea.pdf) documents Grothendieck's method.
+[^scenario-evaluations]: The [Tessl documentation](https://docs.tessl.io/) describes [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios). It is a practical reference, not a project dependency or adopted benchmark.
