@@ -8,8 +8,5 @@ Start from the request, current state, and observed evidence; derive the traits 
 
 ## Approach
 
-- [Agentic tooling](https://github.com/agentic-tend/.github/blob/main/docs/agentic-tooling.md) defines the motivation, task loop, capability composition, and evaluation model.
-- [Context ownership](https://github.com/agentic-tend/.github/blob/main/docs/context-ownership.md) defines what to persist, where it belongs, and how it is activated or checked.
-- [Development composition](https://github.com/agentic-tend/.github/blob/main/docs/development.md) gives concrete examples without prescribing a fixed workflow.
+- The [organization documentation map](https://github.com/agentic-tend/.github/blob/main/docs/README.md) routes principles, capability composition, human-facing presentation, context ownership, development scenarios, and evaluation to their canonical owners.
 - [Skills](https://github.com/agentic-tend/skills) package reusable capabilities behind task-matching descriptions.
-- The [organization roadmap](https://github.com/agentic-tend/.github/blob/main/docs/roadmap.md) tracks evidence and extension work spanning multiple layers.

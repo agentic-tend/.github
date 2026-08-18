@@ -1,12 +1,12 @@
 # Development capability composition
 
-This human-facing model composes capabilities from the traits and uncertainty of current work without imposing a fixed reasoning pipeline.
+This human-facing model composes capabilities from the traits and uncertainty of current work without imposing a fixed workflow.
 
 ## Compose what the task needs
 
 One task may combine software behavior, a programming language, persistent prose, and user-owned semantics. Select each capability for the concern it addresses rather than assigning the entire task to one category.
 
-Resolve uncertainty at its source: inspect discoverable facts, let the applicable capability choose contract-equivalent implementation details, and involve the user only when a choice would change established meaning or observable behavior. The executable boundary lives in [global authority and routing](../config/codex/AGENTS.global.md) and [`$clarifying-contracts`](https://github.com/agentic-tend/skills/tree/main/clarifying-contracts).
+Resolve uncertainty at its source: inspect discoverable facts, let the applicable capability choose contract-equivalent implementation details, and involve the user only when a choice would change established meaning or observable behavior. The executable boundary lives in the [global interaction contract](../config/codex/AGENTS.global.md) and [`$clarifying-contracts`](https://github.com/agentic-tend/skills/tree/main/clarifying-contracts).
 
 Use `/plan` when implementation-path uncertainty benefits from a decision-complete design. Use `/goal` for durable multi-step work whose outcome and completion evidence are already defined. These are optional coordination surfaces, not stages that every task must pass through.
 
@@ -38,5 +38,5 @@ Start a nontrivial loop from observable success and a working hypothesis, then c
 
 - Update this model when organization-level capability composition or authority boundaries change.
 - Update global `AGENTS.md` or a skill only when its executable behavior or dispatch predicate changes.
-- Keep public layer and ownership theory in [agentic tooling](agentic-tooling.md) and [context ownership](context-ownership.md); keep the human composition model here.
+- Keep public capability and ownership theory in the [capability model](capability-model.md) and [context ownership](context-ownership.md); keep the human composition model here.
 - Keep transient execution state in prompts, plans, goals, issues, pull-request bodies, commits, or test failures rather than this durable model.

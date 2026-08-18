@@ -4,12 +4,12 @@ Persistent context should preserve meaning that future readers or runtimes canno
 
 ## What to persist
 
-Place a durable item by asking what makes it valid and how broadly it must apply. General capability needs no stored policy; an unconditional cross-domain preference belongs at L0; a reusable capability activated by task traits belongs at L1; a repository-specific fact or contract belongs at L2; and one-time or unconfirmed state remains transient. This semantic source and scope determine the layer below, while availability requirements determine activation separately.
+Place a durable item by asking what makes it valid and how broadly it must apply. General capability needs no stored policy; an unconditional cross-domain task-grounding, presentation, or authority boundary belongs at L0; a reusable capability activated by task traits belongs at L1; a repository-specific fact or contract belongs at L2; and one-time or unconfirmed state remains transient. This semantic source and scope determine the layer below, while availability requirements determine activation separately.
 
 | Semantic layer | Identifying condition | Canonical context |
 | --- | --- | --- |
 | Model capability | General intelligence is sufficient and no non-inferable preference or contract changes the result | Do not persist |
-| L0 cross-domain epistemology | A reasoning preference or authority boundary applies unconditionally across domains | `~/.codex/AGENTS.md` |
+| L0 interaction contract | Unconditional cross-domain task-grounding, presentation, and authority boundaries | `~/.codex/AGENTS.md` |
 | L1 conditional realization | Reusable taste, workflow, or expertise applies only when task traits match | `~/.agents/skills/` |
 | L2 repository truth | A fact, public contract, local workflow, or rationale is true or required for one repository | Repository `AGENTS.md`, `.agents/skills/`, or `decisions/` according to activation and retrieval need |
 | Transient task state | A constraint, observation, hypothesis, or question belongs only to current work | Current prompt, plan, issue, or other temporary work surface |

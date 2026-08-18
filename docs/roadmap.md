@@ -8,7 +8,7 @@ This roadmap tracks evidence and changes that coordinate more than one Agentic T
 - [x] Replace generic scaffolding with the reusable [`bootstrap-project-context`](https://github.com/agentic-tend/skills/tree/main/bootstrap-project-context) inspection and application workflow.
 - [x] Extract software-engineering taste into the conditional [`software-engineering`](https://github.com/agentic-tend/skills/tree/main/software-engineering) skill without flattening its implementation, testing, and delivery references.
 - [x] Extract language-independent persistent prose behavior into [`structure-documentation`](https://github.com/agentic-tend/skills/tree/main/structure-documentation) and Markdown realization into [`markdown-authoring`](https://github.com/agentic-tend/skills/tree/main/markdown-authoring).
-- [x] Define the [task data and dispatch metadata loop](agentic-tooling.md#task-data-and-dispatch-metadata).
+- [x] Define the [task data and dispatch metadata loop](capability-model.md#task-data-and-feedback).
 - [x] Keep the [activation and enforcement model](context-ownership.md#activation-and-enforcement) orthogonal to semantic ownership.
 - [x] Model mixed tasks through derived traits and composable capability dispatch rather than exclusive task categories.
 - [x] Version the [L0 Codex baseline](../config/codex/AGENTS.global.md) separately from runtime configuration.
