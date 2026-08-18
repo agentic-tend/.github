@@ -30,7 +30,7 @@ Generated structure and smaller diffs are evidence only when they improve an obs
 flowchart LR
     A[Task data] --> B[Derive dispatch traits]
     B --> C[Compose capability logic]
-    C --> D[Action and evidence]
+    C -->|Within current contract and authority| D[Action and evidence]
     D --> E[Update task data]
     E --> B
 ```
@@ -39,7 +39,7 @@ Task data includes the request, current files, runtime state, observed evidence,
 
 Metadata is a view, not a second source of truth. When a summary or classification conflicts with current files or an observed result, update the view from the evidence.
 
-The invariant is that task state remains in the data plane, skills hold composable logic, and descriptive metadata connects the two without becoming another fact store. Modularity encapsulates the validity owner of capability logic; composability exposes the same capability boundary as ports over shared task data, evidence, and contracts.
+The invariant is that task state remains in the data plane, skills hold composable logic, and descriptive metadata connects the two without becoming another fact store. Modularity keeps each capability's reusable logic within its own maintenance and validity boundary; composability exposes the same capability boundary as ports over shared task data, evidence, and contracts.
 
 | Primitive | Ontology | Validity source | Relation |
 | --- | --- | --- | --- |
@@ -71,6 +71,8 @@ A task can expose several traits at once. The final column applies all six trait
 | Uncertainty and authority | What remains unknown and who or what can resolve it | Source resolves implementation facts; the user resolves behavior-changing choices |
 
 Traits describe the task without naming the capabilities selected to handle it. Dispatch matches those descriptive traits against capability predicates.
+
+A derived trait can indicate that an authority, contract, or evidence concern is relevant, but it cannot establish the underlying authorization, contract, fact, or test result. Capability dispatch makes logic applicable; an action remains bounded by the current task data and each claim's own validity source.
 
 Whether a derived view should be stored, where durable context belongs, and how it is loaded are separate questions owned by the [context ownership model](context-ownership.md).
 
