@@ -29,7 +29,7 @@ Generated structure and smaller diffs are evidence only when they improve an obs
 ```mermaid
 flowchart LR
     A[Task data] --> B[Derive dispatch traits]
-    B --> C[Compose capabilities]
+    B --> C[Compose capability logic]
     C --> D[Action and evidence]
     D --> E[Update task data]
     E --> B
@@ -38,6 +38,26 @@ flowchart LR
 Task data includes the request, current files, runtime state, observed evidence, and established contracts. Dispatch traits are metadata derived from that data to select relevant capabilities. Once an action produces new evidence, that evidence joins the task data and the traits are derived again.
 
 Metadata is a view, not a second source of truth. When a summary or classification conflicts with current files or an observed result, update the view from the evidence.
+
+The invariant is that task state remains in the data plane, skills hold composable logic, and descriptive metadata connects the two without becoming another fact store. Modularity encapsulates the validity owner of capability logic; composability exposes the same capability boundary as ports over shared task data, evidence, and contracts.
+
+| Primitive | Ontology | Validity source | Relation |
+| --- | --- | --- | --- |
+| Task data | The current request, files, runtime state, evidence, and contract | The observed system | Traits read it; evidence updates it |
+| Derived trait | A descriptive metadata projection from current task data[^dispatch-trait-projection] | Current task data | Participates in dispatch without becoming a fact source |
+| Capability interface | Reusable logic's activation predicate and negative boundary | `SKILL.md` frontmatter | Matches derived traits |
+| Capability logic | Reusable judgment or workflow loaded after activation | `SKILL.md` body, references, and scripts | Consumes task data and produces action or evidence |
+| Composition seam | A connection through which capabilities share data without merging validity owners | Capability interfaces and the active contract | Enables modularity and composability together |
+| Semantic owner | The authority that decides why a durable meaning is valid | This repository, a skill, a target repository, or the user | Other consumers navigate to it or derive a view |
+| Mechanical oracle | An executable check for a decidable predicate | A test, hook, CI job, build, or renderer | Produces evidence without owning non-mechanical rationale |
+| UI projection | Human-facing discovery and explicit-invocation metadata | `agents/openai.yaml` | Projects an interface without owning semantics |
+| Topology | The primitives and their legal edges: the relational part of the meta-ontology | This canonical theory | A concrete capability collection instantiates it |
+
+Several research systems justify a bounded compiler analogy: LLMCompiler separates planning, task fetching, and execution in compiler-inspired tool orchestration; DSPy compiles declarative LM modules into metric-optimized pipelines; LMQL compiles prompt, control flow, and output constraints into an inference procedure; and grammar-constrained decoding mechanically restricts output structure.[^llmcompiler][^dspy][^lmql][^grammar-decoding] None establishes that an LLM is literally a compiler or that structural conformance proves semantic correctness.
+
+Agentic Tend therefore makes this project inference:
+
+> Harness orchestration can be modeled as a probabilistic, compiler-like transformation from task data and capability interfaces to actions. Model reasoning supplies open-ended selection and synthesis; tests, tools, schemas, permissions, and human authority constrain only the predicates they can actually decide.
 
 A task can expose several traits at once. The final column applies all six traits to one mixed task: refactor a Julia API and update the docstring required by its contract.
 
@@ -92,3 +112,8 @@ Scenario evaluations are one practical implementation of this method.[^scenario-
 [^yang-style]: Tsinghua documents Yang's [permeative learning](https://www.tsinghua.edu.cn/info/3225/121939.htm) and [plain research style](https://www.tsinghua.edu.cn/info/3225/121987.htm).
 [^rising-sea]: McLarty's [*The Rising Sea*](https://ncatlab.org/nlab/files/McLartyRisingSea.pdf) documents Grothendieck's method.
 [^scenario-evaluations]: The [Tessl documentation](https://docs.tessl.io/) describes [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios). It is a practical reference, not a project dependency or adopted benchmark.
+[^llmcompiler]: Kim et al., [*An LLM Compiler for Parallel Function Calling*](https://proceedings.mlr.press/v235/kim24y.html), ICML 2024.
+[^dspy]: Khattab et al., [*DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines*](https://arxiv.org/abs/2310.03714), 2023.
+[^lmql]: Beurer-Kellner et al., [*Prompting Is Programming: A Query Language for Large Language Models*](https://arxiv.org/abs/2212.06094), 2022.
+[^grammar-decoding]: Geng et al., [*Grammar-Constrained Decoding for Structured NLP Tasks without Finetuning*](https://aclanthology.org/2023.emnlp-main.674/), EMNLP 2023.
+[^dispatch-trait-projection]: Here projection means a metadata view derived from task data, distinct from the separate UI projection. It is analogous only to the shape commonly called Julia's Holy-trait idiom: an ordinary query projects a value or type to a dispatch marker; Julia documents `IndexStyle` as a [traits-based mechanism](https://docs.julialang.org/en/v1/manual/interfaces/#man-interface-array). It is not a Rust native trait or associated-type projection: a Rust [trait](https://doc.rust-lang.org/stable/reference/items/traits.html) declares an abstract interface implemented through `impl`, with overlap and orphan constraints enforced through [trait implementation coherence](https://doc.rust-lang.org/stable/reference/items/implementations.html#trait-implementation-coherence). Agentic Tend borrows only the partial mapping `task data -> metadata marker -> dispatch`; it does not claim Julia method-selection semantics, Rust `impl` coherence, or that dispatch itself produces capability composition.

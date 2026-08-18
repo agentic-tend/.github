@@ -18,11 +18,13 @@ These examples exercise composition boundaries rather than define an exhaustive 
 
 | Task state | Capability composition |
 | --- | --- |
-| Edit a standalone guide without making a software decision | `$structure-documentation` |
-| Refactor Julia behavior and update the docstrings required by the changed contract | `$software-engineering` + `$julia-development` + `$structure-documentation` |
+| Edit plain durable prose without making an artifact-syntax or software decision | `$structure-documentation` |
+| Add a table and Mermaid topology to a GitHub README | `$structure-documentation` + `$markdown-authoring` |
+| Edit a Documenter.jl manual page or docstring | `$structure-documentation` + `$markdown-authoring` + `$julia-development` |
+| Refactor Julia behavior without changing persistent prose | `$software-engineering` + `$julia-development` |
 | Choose between two user-visible behaviors in that Julia refactor | Add `$clarifying-contracts` to the same composition |
 | Resolve a suspected implementation fact from source or a focused test | Use the applicable software or domain capability; do not activate clarification merely because the fact was initially unknown |
-| Perform a link-preserving Obsidian move and edit the affected prose | `$obsidian-cli` + `$structure-documentation` |
+| Perform an indexed Obsidian move | `$obsidian-cli`; add `$markdown-authoring` and `$structure-documentation` only if content changes |
 
 The agent may interleave topology, implementation, prose, and evidence as the current state requires. Capability selection preserves semantic ownership; it does not prescribe a signature-to-implementation-to-comments-to-tests trajectory.
 
