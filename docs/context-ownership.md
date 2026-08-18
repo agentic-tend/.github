@@ -1,32 +1,38 @@
 # Context ownership
 
-Persistent context belongs to the semantic owner and activation boundary that can preserve its meaning without broader loading or duplicated authority.
+Persistent context should preserve meaning that future readers or runtimes cannot reliably reconstruct from current state.
 
-## Semantic ownership
+## What to persist
 
-| Semantic layer               | Content                                                                                     | Canonical context                                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Model capability             | General intelligence already available to the model                                         | Do not persist unless a non-inferable preference or contract changes the result                            |
-| L0 cross-domain epistemology | Reasoning preferences plus the smallest unconditional authority and routing appendix        | `~/.codex/AGENTS.md`                                                                                     |
-| L1 conditional realization   | Domain taste, reusable workflows, or expertise                                              | `~/.agents/skills/`                                                                                      |
-| L2 repository truth          | Repository-specific facts, public contracts, local workflows, and evidence-backed rationale | Repository `AGENTS.md`, `.agents/skills/`, or `decisions/` according to activation and retrieval need |
-| Transient task state         | One-time constraints, exploration notes, and unconfirmed ideas                              | Current prompt, plan, issue, or other temporary work surface                                               |
+Place a durable item by asking what makes it valid and how broadly it must apply. General capability needs no stored policy; an unconditional cross-domain preference belongs at L0; a reusable capability activated by task traits belongs at L1; a repository-specific fact or contract belongs at L2; and one-time or unconfirmed state remains transient. This semantic source and scope determine the layer below, while availability requirements determine activation separately.
 
-A repository needs no `AGENTS.md`, `decisions/`, local skill, hook, or generator when no evidence crosses its creation threshold.
+| Semantic layer | Identifying condition | Canonical context |
+| --- | --- | --- |
+| Model capability | General intelligence is sufficient and no non-inferable preference or contract changes the result | Do not persist |
+| L0 cross-domain epistemology | A reasoning preference or authority boundary applies unconditionally across domains | `~/.codex/AGENTS.md` |
+| L1 conditional realization | Reusable taste, workflow, or expertise applies only when task traits match | `~/.agents/skills/` |
+| L2 repository truth | A fact, public contract, local workflow, or rationale is true or required for one repository | Repository `AGENTS.md`, `.agents/skills/`, or `decisions/` according to activation and retrieval need |
+| Transient task state | A constraint, observation, hypothesis, or question belongs only to current work | Current prompt, plan, issue, or other temporary work surface |
+
+These layers do not classify an entire task or file, and they do not prescribe execution order. One task may use L2 facts, several L1 capabilities, and an L0 authority boundary at the same time.
+
+A repository needs no `AGENTS.md`, `decisions/`, local skill, hook, or CI check when no evidence crosses its creation threshold.
 
 ## Activation and enforcement
 
-Activation mechanisms remain orthogonal to semantic ownership:
+Activation answers when context becomes available, not whether its content concerns the acting subject, an operation (predicate), or the targeted object. `Ambient` is reserved here for body content loaded by scope without task-specific retrieval. Skill descriptions support dispatch before skill bodies load; semantic documents are retrieved when their question matters; tests, hooks, and CI run through execution or events.
 
-| Mechanism                  | Activation                                          | Responsibility                                               |
-| -------------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
-| `AGENTS.md`              | Loaded ambiently at user or repository scope        | Expose the applicable L0 or L2 context                       |
-| Skill                      | Loaded when metadata matches or the user invokes it | Realize L1 taste or a reusable workflow conditionally        |
-| Human document or decision | Retrieved for its question or rationale             | Preserve motivation, public theory, or durable rationale     |
-| Test, hook, or CI          | Triggered by execution or an event                  | Check a mechanically observable part of a canonical contract |
-| Generator                  | Invoked explicitly                                  | Materialize repeated deterministic structure                 |
+`README.md` is repository-discovery infrastructure rather than ambient context. Its conventional name makes directory meaning and navigation discoverable before or alongside capability dispatch; the global rule owns only that retrieval protocol, while each README's content remains repository-owned task data and must be checked against current state.[^readme-discovery]
 
-Tests, hooks, and CI are authoritative for the mechanically decidable predicates they execute. They do not own the non-executable rationale, preference, or decision authority behind those predicates. A generator materializes a representation owned elsewhere; neither template presence nor generated output justifies the policy.
+| Mechanism | Becomes available when | Responsibility |
+| --- | --- | --- |
+| `AGENTS.md` body | Loaded ambiently at the applicable user or repository scope | Expose the applicable L0 or L2 context |
+| `README.md` | Discovered by its conventional name while establishing repository task data | Expose directory-level meaning and navigation without becoming an ambient policy owner |
+| Skill | Its description supports dispatch; its body loads when traits match or the user invokes it | Realize one or more applicable L1 capabilities |
+| Semantic document or decision record | Retrieved when its question or rationale matters | Preserve public theory and non-inferable semantics for humans and agents |
+| Test, hook, or CI | Triggered by execution or an event | Check a mechanically observable part of a canonical contract |
+
+Tests, hooks, and CI are authoritative for the mechanically decidable predicates they execute. They do not own the non-executable rationale, preference, or decision authority behind those predicates.
 
 ## Global and repository rules
 
@@ -34,33 +40,27 @@ Tests, hooks, and CI are authoritative for the mechanically decidable predicates
 
 The same L0 meaning may support a future agent runtime by reference or adaptation, with that runtime adding only the discovery and routing required by its own model. Do not extract an agent-neutral base until a second runtime creates concrete pressure.
 
-Codex reads global guidance before more specific repository instructions, so repository `AGENTS.md` files add local context rather than copy L0 or L1 policy. See [AGENTS.md discovery](https://learn.chatgpt.com/docs/agent-configuration/agents-md) for the product behavior.
+Agents read global guidance before more specific repository instructions, so repository `AGENTS.md` files add local context rather than copy L0 or L1 policy.[^agents-discovery]
 
-## Skills and mixed work
+## Skills and capability composition
 
-Skills use progressive disclosure. Codex initially sees skill names and descriptions, then loads full instructions when a task matches. A direct `$skill-name` in a user prompt is documented explicit invocation; the same name inside `AGENTS.md` is an interpreted routing instruction, not a parser-level dispatch guarantee. See [Build skills](https://learn.chatgpt.com/docs/build-skills).
+Skills use progressive disclosure. Agents initially see skill names and descriptions, then load full instructions when a trait matches[^skill-invocation]. These descriptions are predicates over task traits. They are not membership rules for exclusive task classes.
 
-The L0 baseline tells the agent to load and follow `$structure-documentation` for persistent prose, including comments and docstrings inside mixed coding work. This reduces routing misses without copying the prose workflow into every repository. `$software-engineering` remains conditional through metadata that covers software design, implementation, debugging, refactoring, testing, optimization, review, and delivery.
+A software task can simultaneously require software topology and testing, Julia semantics, persistent prose, and semantic clarification. Persistent natural language that is itself the task object may dispatch directly to `$structure-documentation`. In mixed software work, `$software-engineering` owns whether embedded prose is justified and which software meaning it must preserve, a language skill owns host-language semantics and syntax, and `$structure-documentation` owns the resulting prose organization and expression.
 
-## One owner per decision
+Each selected capability owns the concern it addresses. Orchestration preserves their authority and evidence boundaries without prescribing a fixed internal trajectory.
 
-Keep one canonical owner for each rule, preference, fact, or rationale. Downstream files navigate to the owner instead of restating it.
+## One canonical source
+
+Define each durable fact, rule, preference, or rationale in one canonical source. Other files link to it instead of restating behavior-changing details.
 
 When context is inconsistent, classify the problem before changing structure:
 
-- authority conflict: multiple sources claim the same decision;
-- abstraction gap: no source owns a repeated decision;
+- authority conflict: multiple sources define the same fact, rule, preference, or rationale;
+- abstraction gap: no source preserves a repeated requirement;
 - instance drift: one clear source exists, but an instance violates it.
 
-Correct an authority conflict at the owner, add an abstraction only when the gap blocks work or recurs, and fix instance drift without broadening the policy.
-
-## Decisions, enforcement, and generators
-
-A decision preserves durable rationale; it is not a second instruction file. Link it for human retrieval when useful, but do not require recursive reading to discover executable behavior.
-
-Add event-triggered enforcement only when a canonical contract exposes a reliable mechanical predicate. Punctuation enforcement, for example, should become mechanical only after repeated misses show that routing and skill guidance are insufficient and an acceptable parser exists.
-
-Use a generator only to reduce repeated deterministic materialization of an already owned representation. The former Copier harness was retired because repositories should absorb only the context increment created by their actual data, logic, tooling, and contracts.
+Correct an authority conflict at the canonical source, add an abstraction only when the gap blocks work or recurs, and fix instance drift without broadening the policy.
 
 ## Migration rule
 
@@ -74,4 +74,8 @@ Pressure-test every applicable operation:
 - compress only when structure, behavior-changing distinctions, and citations survive;
 - delete only when the content is inferable, obsolete, or already preserved once by its canonical owner.
 
-[`$bootstrap-project-context`](https://github.com/agentic-tend/skills/tree/main/bootstrap-project-context) performs this inspection and applies the minimum sufficient local result. Existing downstream repositories migrate separately when their maintainers choose; retiring the generator does not rewrite consumers automatically.
+[`$bootstrap-project-context`](https://github.com/agentic-tend/skills/tree/main/bootstrap-project-context) performs this inspection and applies the minimum sufficient local result. Existing downstream repositories migrate separately when their maintainers choose.
+
+[^skill-invocation]: *A direct `$skill-name` in a user prompt is documented explicit invocation; the same name inside `AGENTS.md` is an interpreted routing instruction, not a parser-level dispatch guarantee.* See [Build skills](https://learn.chatgpt.com/docs/build-skills).
+[^agents-discovery]: See [AGENTS.md discovery](https://learn.chatgpt.com/docs/agent-configuration/agents-md) for the product behavior.
+[^readme-discovery]: GitHub recognizes and automatically surfaces README files at conventional repository locations. See [About the repository README file](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes). Agentic Tend's root-to-target traversal is its own routing convention.
