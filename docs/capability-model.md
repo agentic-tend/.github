@@ -52,6 +52,14 @@ A derived trait can indicate that an authority, contract, or evidence concern is
 
 Whether a derived view should be stored, where durable context belongs, and how it is loaded are separate questions owned by the [context ownership model](context-ownership.md). Human-facing projection and review are owned by the [presentation model](presentation.md).
 
+## Capability and agent composition
+
+The capability graph describes which reusable judgment current task traits require. When evidence separation is useful, an agent-port graph and its feedback topology form a transient execution projection over the same task data. They do not extend the primitive ontology or establish a new source of truth.
+
+This is an effective description of black-box execution. It retains port motivation, inputs, outputs, withheld information, feedback edges, provenance, and human-visible projections while leaving agent count, prompts, private reasoning, message order, and local decomposition to the active model and runtime.
+
+One agent may compose several capabilities, and one capability may contribute to several independently scoped contexts. Coordinator, prior-evidence, worker, and posterior-review ports are conditional realizations derived from the current claim, uncertainty, information boundary, and evidence need; they are not persistent roles, exclusive task owners, or required stages. The [multi-agent evidence model](multi-agent.md) owns when and why this effective separation can reduce correlated failure.
+
 ## Bounded compiler analogy
 
 Several research systems justify a bounded compiler analogy: LLMCompiler separates planning, task fetching, and execution in compiler-inspired tool orchestration; DSPy compiles declarative LM modules into metric-optimized pipelines; LMQL compiles prompt, control flow, and output constraints into an inference procedure; and grammar-constrained decoding mechanically restricts output structure.[^llmcompiler][^dspy][^lmql][^grammar-decoding] None establishes that an LLM is literally a compiler or that structural conformance proves semantic correctness.

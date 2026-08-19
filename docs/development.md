@@ -24,15 +24,16 @@ These examples exercise composition boundaries rather than define an exhaustive 
 | Refactor Julia behavior without changing persistent prose | `$software-engineering` + `$julia-development` |
 | Choose between two user-visible behaviors in that Julia refactor | Add `$clarifying-contracts` to the same composition |
 | Resolve a suspected implementation fact from source or a focused test | Use the applicable software or domain capability; do not activate clarification merely because the fact was initially unknown |
+| Keep applicable evidence independent of a proposed implementation | Add `$multi-agent-evidence` to derive prior-evidence and worker ports while preserving the same contract and capability owners |
 | Perform an indexed Obsidian move | `$obsidian-cli`; add `$markdown-authoring` and `$structure-documentation` only if content changes |
 
 The agent may interleave topology, implementation, prose, and evidence as the current state requires. Capability selection preserves semantic ownership; it does not prescribe a signature-to-implementation-to-comments-to-tests trajectory.
 
 ## Revisit perspectives as evidence changes
 
-Inspection, architecture review, planning, and execution may recur in any order as evidence changes the task. They are perspectives to revisit, not a required number of agents or a pipeline.
+Inspection, architecture review, planning, and execution may recur in any order as evidence changes the task. They are perspectives to revisit, not a required number of agents or a pipeline. When evidence separation pays, the [multi-agent evidence model](multi-agent.md) derives a temporary port graph from that evidence need without fixing agent count, message order, or internal steps.
 
-Start a nontrivial loop from observable success and a working hypothesis, then choose the cheapest evidence that distinguishes the live alternatives. Interpret whether feedback falsifies the implementation, reveals an invalid check or environment, or exposes a user-owned semantic decision. Revisit the relevant perspective and stop when the agreed evidence is complete. Use dialogue when alternatives change the contract; use agent judgment when alternatives are implementation-equivalent.
+Start a nontrivial loop from observable success and a working hypothesis, then choose the cheapest evidence that distinguishes the live alternatives. Establish the smallest vertical skeleton and applicable evidence pressure before horizontal detail, then interleave structure, realization, and feedback as the task requires. Interpret whether feedback falsifies the implementation, reveals an invalid check or environment, or exposes a user-owned semantic decision. Revisit the relevant perspective and stop when the agreed evidence is complete. Use dialogue when alternatives change the contract; use agent judgment when alternatives are implementation-equivalent.
 
 ## Change control
 

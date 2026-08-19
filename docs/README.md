@@ -8,6 +8,7 @@ This directory is the canonical map from Agentic Tend's public questions to the 
 | --- | --- |
 | Why does Agentic Tend preserve context, and when should structure grow? | [Principles](principles.md) |
 | How do task data, derived traits, and capabilities compose? | [Capability model](capability-model.md) |
+| How can multiple agents expose independent evidence without prescribing micro-orchestration? | [Multi-agent evidence separation](multi-agent.md) |
 | How should agent-authored work expose structure to human review? | [Presentation and human review](presentation.md) |
 | What should persist, where does it belong, and how is it activated or enforced? | [Context ownership](context-ownership.md) |
 | How do capabilities combine in concrete development work? | [Development capability composition](development.md) |

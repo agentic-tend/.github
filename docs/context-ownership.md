@@ -48,7 +48,9 @@ Skills use progressive disclosure. Agents initially see skill names and descript
 
 A software task can simultaneously require software topology and testing, Julia semantics, persistent prose, Markdown realization, and semantic clarification. Persistent natural language that is itself the task object may dispatch directly to `$structure-documentation`. In mixed software work, `$software-engineering` owns whether embedded prose is justified and which software meaning it must preserve, `$structure-documentation` owns the resulting language-independent organization and expression, an artifact-language capability such as `$markdown-authoring` owns source realization, and a host-language capability owns its syntax and renderer extensions.
 
-Each selected capability encapsulates reusable judgment for its concern and exposes inputs and outputs at that boundary. Activation does not make the capability authoritative for task facts, contracts, evidence, or user-owned decisions. Shared task data and contracts form the composition seam; orchestration does not merge owners or prescribe a fixed internal trajectory.
+Each selected capability encapsulates reusable judgment for its concern and exposes inputs and outputs at that boundary. Activation does not make the capability authoritative for task facts, contracts, evidence, or user-owned decisions. Shared task data and contracts form the composition seam.
+
+The [multi-agent evidence model](multi-agent.md) owns the public effective theory for separating execution contexts, the [presentation model](presentation.md#multi-agent-plan-and-delivery) owns the human-visible plan and delivery, and `$multi-agent-evidence` owns conditional realization. Separate contexts and feedback edges do not merge semantic owners or prescribe an internal trajectory.
 
 ## One canonical source
 

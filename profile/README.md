@@ -8,5 +8,5 @@ Start from the request, current state, and observed evidence; derive the traits 
 
 ## Approach
 
-- The [organization documentation map](https://github.com/agentic-tend/.github/blob/main/docs/README.md) routes principles, capability composition, human-facing presentation, context ownership, development scenarios, and evaluation to their canonical owners.
+- The [organization documentation map](https://github.com/agentic-tend/.github/blob/main/docs/README.md) routes principles, capability composition, multi-agent evidence, human-facing presentation, context ownership, development scenarios, and evaluation to their canonical owners.
 - [Skills](https://github.com/agentic-tend/skills) package reusable capabilities behind task-matching descriptions.

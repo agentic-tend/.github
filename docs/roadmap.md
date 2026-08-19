@@ -11,11 +11,15 @@ This roadmap tracks evidence and changes that coordinate more than one Agentic T
 - [x] Define the [task data and dispatch metadata loop](capability-model.md#task-data-and-feedback).
 - [x] Keep the [activation and enforcement model](context-ownership.md#activation-and-enforcement) orthogonal to semantic ownership.
 - [x] Model mixed tasks through derived traits and composable capability dispatch rather than exclusive task categories.
+- [x] Define [multi-agent evidence separation](multi-agent.md) as an effective contract over observable ports and feedback topology without fixing micro-orchestration, a role pipeline, or a risk ontology.
 - [x] Version the [L0 Codex baseline](../config/codex/AGENTS.global.md) separately from runtime configuration.
 
 ## Behavioral evidence
 
 - [ ] Turn the documented composition scenarios into representative explicit and implicit skill evaluations with source-grounded objectives, observable criteria, and holdout cases that do not leak expected answers into the evaluator.
+- [ ] Compare single-agent work, naive shared-narrative subagents, and information-separated ports on confirmed correlated failures.
+- [ ] Test plan-before-delegation, conditional prior evidence, recursive posterior review, provenance-aware delivery, and negative controls that reject latency-only parallelism.
+- [ ] Test whether held-out evidence, falsification, and validity-source diversity reveal failures that agent agreement misses.
 - [ ] Compare mixed code-and-prose tasks with pure-code negative controls.
 - [ ] Mine execution logs and maintainer feedback for real failures, then retain confirmed cases as regressions.
 - [ ] Calibrate automated checks and proxies against human judgment before using them as admission gates.
