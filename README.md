@@ -4,6 +4,7 @@ This repository owns Agentic Tend's organization profile, shared community healt
 
 ## Project map
 
+- Start with the [Agentic Tend guide](docs/guide.md) for the Human, LLM or agent, and external-world interaction model that motivates the design.
 - [Organization profile](profile/README.md) is the public landing page shown on the organization overview.
 - [Organization docs](docs/README.md) are the canonical map for principles, capability topology, multi-agent evidence, human-facing presentation, context ownership, evaluation, and the cross-layer roadmap.
 - [Codex global defaults](config/codex/AGENTS.global.md) are the versioned source for the L0 interaction contract installed at `~/.codex/AGENTS.md`.

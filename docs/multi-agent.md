@@ -21,7 +21,7 @@ The useful objective is therefore not more agents or more debate. It is to let a
 
 This boundary preserves non-inferable preferences without spending context on an imitation of the reasoning that a capable model must perform anyway. It also avoids collapsing the solution space into a fixed supervisor pipeline. The capability graph remains the durable description of reusable judgment; an agent-port graph and its feedback edges are temporary views derived from current task data.
 
-Establish the smallest vertical skeleton before horizontal detail: motivation determines the observable contract and topology, applicable evidence pressure constrains that skeleton, and local realization follows. This is a logical dependency, not a ban on interleaving structure, implementation, and feedback once the boundary is coherent.
+Before assigning ports, define the smallest object-specific evidence boundary: the claim at issue, its proper validity sources, each port's inputs and withheld information, and the output that can change judgment. Each port may then choose its local realization. This dependency does not prescribe runtime order or forbid feedback from revising the port graph.
 
 ## Observable port topology
 
@@ -32,7 +32,7 @@ flowchart LR
     H[Human] -->|Request and authority| C[Coordinator bridge]
     C -->|Plan before delegation; delivery after execution| H
     C -.->|When independent evidence exists| P[Prior-evidence port]
-    P -->|Predicates, semantic pressure, and gaps| C
+    P -->|Predicates, findings, and gaps| C
     C <-->|Bounded objective; artifact and evidence| W[Worker ports]
     C -.->|When falsification can change judgment| R[Posterior-review ports]
     R -->|Failure, disagreement, or evidence gap| C
@@ -41,7 +41,7 @@ flowchart LR
 | Port | Motivation | Consumes | Produces |
 | --- | --- | --- | --- |
 | Coordinator bridge | Preserve human attention and authority while maintaining the effective feedback topology | Request, established contract, task data, authority, and returned evidence | Human-visible plan and delivery, bounded port interfaces, feedback routing, and stopping state |
-| Prior-evidence port | Prevent implementation exposure from moving an independently available target | Motivation, observable contract, current facts, and applicable validity sources, without the proposed implementation when independence matters | Supported mechanical predicates, semantic pressure, and explicit unvalidated boundaries |
+| Prior-evidence port | Prevent implementation exposure from moving an independently available target | Motivation, observable contract, current facts, and applicable validity sources, without the proposed implementation when independence matters | Supported mechanical predicates, judgment-changing findings, and explicit unvalidated boundaries |
 | Worker port | Realize one bounded objective without becoming a new semantic owner | Objective, contract, authoritative facts, allowed actions, and applicable capabilities | Artifact or claim, observations, evidence, provenance, and unresolved boundaries |
 | Posterior-review port | Find discriminating failures and compress review before human attention is required | Resulting artifact, contract, evidence, and executable environment, without an unnecessary success narrative | Counterexample, disagreement, evidence gap, or bounded support with its provenance |
 
@@ -52,12 +52,12 @@ These are conditional ports, not persistent agent identities or mandatory stages
 A prior-evidence port exists only when valid evidence can be formed independently and seeing the implementation could contaminate it. Its output distinguishes three boundaries:
 
 - a **mechanical predicate** is included only when the property is both decidable by the available oracle and worth checking;
-- **semantic pressure** traces the outcome back to motivation, contract, or human authority so drift, omission, and redundancy can be challenged;
+- a judgment-changing finding traces the outcome back to motivation, contract, evidence, or human authority so drift, omission, and redundancy can be examined;
 - an **unvalidated claim** records what no available source or probe can decide.
 
-Semantic pressure is not a mechanical oracle, and an agent's judgment that an artifact satisfies it remains a claim. Tasks that are not meaningfully verifiable do not acquire fabricated tests or evaluator roles.
+An interpretation is not a mechanical oracle, and an agent's judgment that an artifact satisfies a semantic requirement remains a claim. Tasks that are not meaningfully verifiable do not acquire fabricated tests or evaluator roles.
 
-For software work, tests may project applicable mechanical predicates, but software testing, vertical and horizontal implementation, and oracle integrity remain owned by the software-engineering capability. Multi-agent separation decides only whether those judgments benefit from a context that has not seen the proposed implementation.
+For software work, tests may project applicable mechanical predicates, but software testing, implementation topology, and oracle integrity remain owned by the software-engineering capability. Multi-agent separation decides only whether those judgments benefit from a context that has not seen the proposed implementation.
 
 ## Recursive posterior review
 

@@ -8,5 +8,6 @@ Start from the request, current state, and observed evidence; derive the traits 
 
 ## Approach
 
-- The [organization documentation map](https://github.com/agentic-tend/.github/blob/main/docs/README.md) routes principles, capability composition, multi-agent evidence, human-facing presentation, context ownership, development scenarios, and evaluation to their canonical owners.
+- Start with the [Agentic Tend guide](https://github.com/agentic-tend/.github/blob/main/docs/guide.md) to see how Human authority, LLM reasoning, and external evidence form the interaction loop.
+- The [organization documentation map](https://github.com/agentic-tend/.github/blob/main/docs/README.md) routes questions about behavior admission, capability dispatch, context persistence, human review, evidence separation, and context evaluation to their canonical owners. Capability-composition examples remain a derived view.
 - [Skills](https://github.com/agentic-tend/skills) package reusable capabilities behind task-matching descriptions.

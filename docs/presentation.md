@@ -1,28 +1,44 @@
 # Presentation and human review
 
-Agent-authored presentation uses progressive disclosure to make rapidly produced work reviewable without deciding how deeply a human should inspect it.
+Presentation projects current task state into a reading path that preserves human attention and lets each reader stop after fulfilling their responsibility.
 
 ## Why: review bandwidth
 
 AI can generate and revise artifacts much faster than a human can reread them. Repeated full-state review makes unchanged or inferable detail compete with semantic change, consumes scarce attention, and increases the chance that an almost-correct result survives because the reviewer is exhausted.
 
+Every sentence or semantic block therefore needs a reader-facing function. It must answer the current question or supply context, a result, a relation, evidence, a boundary, or an action that the remaining reading path needs. If removing it loses none of those functions, it should not compete for attention. This task-grounded need gives the reader a reason to continue.
+
 The goal is not to restrict inspection. It is to give the reader a compact first view and a clear path to recover as much detail as their responsibility or curiosity requires.
 
-## What: a progressive projection
+## Three independent axes
 
-Every agent-authored answer, question, plan, update, summary, and handoff is a human-facing projection from current [task data](capability-model.md#task-data-and-feedback), results, and evidence. The first visible layer gives the smallest sufficient understanding of why the presentation exists and what materially follows. Further layers expose how that result is structured, supported, or realized.
+Every answer, question, plan, update, summary, and handoff is a human-facing projection from current [task data](capability-model.md#task-data-feedback-loop), results, and evidence. Three axes organize that projection without becoming fixed headings.
 
-The dependency order is:
+| Axis | Direction | Question answered |
+| --- | --- | --- |
+| Reader responsibility | interface -> subsystem -> implementation | How much must this reader know to act or review? |
+| Semantic depth | why -> what -> how | Why does this block exist, what follows, and how is it supported or realized? |
+| Intra-layer traversal | prerequisite -> dependent claim | What must be established before the next statement can be understood once? |
+
+### Responsibility: interface to implementation
+
+Lead with the smallest interface-level result that lets the least implementation-responsible reader make the current judgment. Descend through subsystem contracts, evidence, and implementation only as later responsibilities require. Detail does not move upward merely because it is novel, difficult, or expensive to produce.
+
+### Semantic depth: why to what to how
+
+Within any responsibility layer, use the dependency order:
 
 > why -> what -> how
 
-These are semantic roles, not mandatory headings or a fixed number of levels. A one-line factual answer may collapse them into one layer. A complex result may apply the same dependency recursively inside several blocks.
+These are semantic roles, not mandatory headings or a fixed number of levels. A one-line factual answer may collapse them. A complex result may apply the same order recursively inside deeper blocks.
+
+### Traversal: prerequisite DAG
+
+Within a layer, put each prerequisite, definition, or distinction before the statement that depends on it. Start from available context, add one needed relation, and leave the context required by the next sentence. Do not rely on later prose to repair an earlier ambiguity or use repetitive summary to compensate for a skipped link.
 
 Compression removes rereading cost, not meaning. Preserve any distinction whose absence could change judgment, including observable behavior, contracts, authority, assumptions, trade-offs, material uncertainty, validation boundaries, and relevant provenance. Inferable or unchanged detail should not compete for first attention, but it remains reachable through the underlying artifact or evidence when one exists.
 
-## How: adaptive semantic granularity
-
-The agent chooses block boundaries and disclosure depth from the result's logical dependencies, validity sources, and independent reader choices. It does not partition by word count, file count, implementation volume, risk tier, or a universal section taxonomy.
+The agent chooses block boundaries and disclosure depth from these axes, validity sources, and independent reader choices. It does not partition by word count, file count, implementation volume, risk tier, or a universal section taxonomy. Use the plainest domain-appropriate language that preserves the meaning; decoration, synonym rotation, and unsupported abstraction do not create a reader need.
 
 This partition is also a check on task understanding. If a presentation cannot separate why, what, and how without mixing distinct objectives, contracts, authorities, uncertainties, or evidence, the agent should revisit the task data, derive a better decomposition, or return an unresolved semantic choice to the user. A polished hierarchy is evidence that the input has been organized coherently; it is not evidence that the underlying claims are correct.
 

@@ -1,20 +1,36 @@
 # Context ownership
 
-Persistent context should preserve meaning that future readers or runtimes cannot reliably reconstruct from current state.
+Context ownership governs the slow loop in which a need survives the current task and becomes durable context. It decides whether persistence is justified, who owns the meaning, how broadly and how long it applies, when it loads, and what it costs to retrieve.
 
-## What to persist
+## Persistence loop
 
-Place a durable item by asking what makes it valid and how broadly it must apply. General capability needs no stored policy; an unconditional cross-domain task-grounding, presentation, or authority boundary belongs at L0; a reusable capability activated by task traits belongs at L1; a repository-specific fact or contract belongs at L2; and one-time or unconfirmed state remains transient. This semantic source and scope determine the layer below, while availability requirements determine activation separately.
+Most task pressure should disappear when the task resolves. Persistence becomes a live intervention only when future work cannot reliably reconstruct a material distinction or repeated evidence shows that its absence changes behavior.
 
-| Semantic layer | Identifying condition | Canonical context |
+```text
+durable reconstruction gap
+    -> identify validity owner, scope, lifetime, activation, and retrieval cost
+    -> apply the minimum sufficient context
+    -> observe later work
+    -> retain, move, compress, or delete
+```
+
+This slow loop consumes evidence from current and later tasks. It does not duplicate the [fast task-data loop](capability-model.md#task-data-feedback-loop), and a valid audit may end with no file change.
+
+## Placement and cache view
+
+Place a durable item first by its validity owner and semantic scope, then choose an activation mechanism that makes it available at acceptable retrieval cost. Lifetime distinguishes a durable contract from transient state; activation distinguishes ambient loading from conditional retrieval.
+
+L0, L1, L2, and transient are cache and retrieval views, not a hierarchy of truth. An L0 rule is broader and loaded earlier than a repository fact, but it is not more valid. Every item remains answerable to its actual source.
+
+| Cache view | Use when | Typical context and activation |
 | --- | --- | --- |
 | Model capability | General intelligence is sufficient and no non-inferable preference or contract changes the result | Do not persist |
-| L0 interaction contract | Unconditional cross-domain task-grounding, presentation, and authority boundaries | `~/.codex/AGENTS.md` |
-| L1 conditional realization | Reusable taste, workflow, or expertise applies only when task traits match | `~/.agents/skills/` |
-| L2 repository truth | A fact, public contract, local workflow, or rationale is true or required for one repository | Repository `AGENTS.md`, `.agents/skills/`, or `decisions/` according to activation and retrieval need |
-| Transient task state | A constraint, observation, hypothesis, or question belongs only to current work | Current prompt, plan, issue, or other temporary work surface |
+| L0 ambient contract | A cross-domain task-grounding, presentation, or authority boundary applies unconditionally | User-level `AGENTS.md`, loaded by scope |
+| L1 conditional capability | Reusable judgment applies only when task traits match | User-level skill, loaded through dispatch |
+| L2 repository context | A fact, public contract, local workflow, or rationale is true or required for one repository | Repository `AGENTS.md`, local skill, or decision record according to activation need |
+| Transient state | A constraint, observation, hypothesis, or question belongs only to current work | Prompt, plan, issue, or another temporary surface |
 
-These layers do not classify an entire task or file, and they do not prescribe execution order. One task may use L2 facts, several L1 capabilities, and an L0 authority boundary at the same time.
+These views do not classify an entire task or file and do not prescribe execution order. One task may use repository facts, several conditional capabilities, and an ambient authority boundary at the same time.
 
 A repository needs no `AGENTS.md`, `decisions/`, local skill, hook, or CI check when no evidence crosses its creation threshold.
 
@@ -42,19 +58,17 @@ The same L0 meaning may support a future agent runtime by reference or adaptatio
 
 Agents read global guidance before more specific repository instructions, so repository `AGENTS.md` files add local context rather than copy L0 or L1 policy.[^agents-discovery]
 
-## Skills and capability composition
+## Conditional capabilities
 
 Skills use progressive disclosure. Agents initially see skill names and descriptions, then load full instructions when a trait matches[^skill-invocation]. These descriptions are predicates over task traits. They are not membership rules for exclusive task classes.
 
-A software task can simultaneously require software topology and testing, Julia semantics, persistent prose, Markdown realization, and semantic clarification. Persistent natural language that is itself the task object may dispatch directly to `$structure-documentation`. In mixed software work, `$software-engineering` owns whether embedded prose is justified and which software meaning it must preserve, `$structure-documentation` owns the resulting language-independent organization and expression, an artifact-language capability such as `$markdown-authoring` owns source realization, and a host-language capability owns its syntax and renderer extensions.
-
-Each selected capability encapsulates reusable judgment for its concern and exposes inputs and outputs at that boundary. Activation does not make the capability authoritative for task facts, contracts, evidence, or user-owned decisions. Shared task data and contracts form the composition seam.
+Each selected capability encapsulates reusable judgment for its concern. Activation does not make it authoritative for task facts, contracts, evidence, or user-owned decisions; it only makes its logic available. The [capability model](capability-model.md) owns composition over shared task data and contracts.
 
 The [multi-agent evidence model](multi-agent.md) owns the public effective theory for separating execution contexts, the [presentation model](presentation.md#multi-agent-plan-and-delivery) owns the human-visible plan and delivery, and `$multi-agent-evidence` owns conditional realization. Separate contexts and feedback edges do not merge semantic owners or prescribe an internal trajectory.
 
 ## One canonical source
 
-Define each durable fact, rule, preference, or rationale in one canonical source. Other files link to it instead of restating behavior-changing details.
+Define each durable fact, rule, preference, or rationale in one canonical source. Other files route to it instead of restating behavior-changing details. An activation mechanism may carry the minimum executable projection needed when it loads without carrying the public rationale or a backlink. That projection does not become another semantic owner and must not invent a second rationale.
 
 When context is inconsistent, classify the problem before changing structure:
 

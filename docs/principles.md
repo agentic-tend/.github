@@ -1,45 +1,40 @@
 # Agentic Tend principles
 
-Agentic Tend preserves objectives and preferences that general model capability cannot reliably infer, while leaving learnable intelligence and contract-equivalent taste to the agent.
+Agentic Tend admits behavior only when current work contains a material unresolved relation, and it preserves only non-inferable distinctions that future work cannot reliably reconstruct.
 
-## Why preserve context
+## Pressure before behavior
 
-Richard Sutton's *The Bitter Lesson*[^bitter-lesson] argues that scalable learning and search ultimately outperform attempts to hand-code human domain knowledge into intelligent systems.
+A capable probabilistic model can always generate another action, check, abstraction, or explanation. Generation alone is not a reason to act.
 
-Agentic Tend derives a tooling maxim from that lesson:
+A task-grounded question, gap, conflict, or unmet requirement creates pressure only when resolving it can change the current judgment, outcome, or authorized next action. Hypotheses and analogies may motivate a discriminating probe; they do not establish that the imagined problem exists. When no material pressure remains within the authorized scope, the agent stops.
+
+The [capability model](capability-model.md) owns how task data derives this pressure, matches behavior, and updates the decision after evidence returns. This document owns only the admission and stopping principle.
+
+## Keep intelligent matching open
+
+Richard Sutton's *The Bitter Lesson*[^bitter-lesson] argues that scalable learning and search ultimately outperform attempts to hand-code human domain knowledge into intelligent systems. Agentic Tend derives a tooling maxim from that lesson:
 
 > Do not encode intelligence that can be learned; encode objectives and preferences that cannot be inferred.
 
-It does not imply deleting every `AGENTS.md` or skill as models improve. Cross-domain interaction contracts, user-specific taste, authority boundaries, local facts, and public contracts remain justified when stronger general capability still cannot infer them.
+The harness therefore preserves non-inferable objectives, preferences, contracts, authority boundaries, and reliable constraints. It does not enumerate a fixed response for every possible task.
 
-`Tend` means caring for a growing system: let useful instances expose pressure, introduce only the structure that pressure requires, and preserve the distinctions needed for later judgment.
+`Tend` means letting useful instances expose pressure, adding only the sufficient behavior or structure, and retaining the distinctions required for later judgment.
 
-## Pressure before structure
+## Fast behavior and slow persistence
 
-The governing sequence is:
+Most pressure belongs to the current task. Inspection, action, and evidence can resolve it without adding durable context. Recurrent failures or a future reconstruction gap may instead show that a distinction must survive the task.
 
-> observed need -> minimal persistent structure
+Persistence is therefore a slower intervention, not the default output of the fast task loop:
 
-Minimal means minimum sufficient and lossless, not the fewest files or shortest prose. Apply the same counterfactual discipline to addition and subtraction: persist a distinction only when its absence would change future judgment, move it when its owner or activation boundary is wrong, and compress or delete it only when meaning, rationale, and sources remain recoverable. The [context ownership model](context-ownership.md) owns the operational tests for each migration action.
+> durable non-inferable need -> minimum sufficient persistent structure
 
-Generated structure and smaller diffs are evidence only when they improve an observable contract or remove a demonstrated cost.
+Minimum sufficient means lossless for future judgment, not the fewest files or shortest prose. A distinction should persist only when its absence would change later behavior or understanding. The [context ownership model](context-ownership.md) decides its owner, scope, lifetime, activation, and retrieval cost.
+
+Generated structure and smaller diffs matter only when they improve an observable contract or remove a demonstrated cost.
 
 ## Intellectual influences
 
-Agentic Tend's documented taste draws from several compatible but non-identical traditions:
-
-- Yang Chen-Ning's preference for plain, substantial work, summarized by "宁拙毋巧, 宁朴毋华", supports derivation and robustness over display or tricks. His permeative learning also motivates gradual immersion: continue through partial understanding while increasingly constraining observations connect points into a whole.[^yang-style]
-- Grothendieck's rising-sea image describes problems becoming natural as a surrounding conceptual world develops.[^rising-sea] Agentic Tend inherits the preference for structural derivation and gradual immersion, but not unconditional generalization: a larger theory must still answer concrete pressure and state its cost.
-
-<details>
-<summary>Examples across domains</summary>
-
-- For **algorithms**, the shared route starts with exhaustive enumeration or the simplest complete baseline, identifies redundant computation, and derives the minimum structure that removes it.
-- For **data structures**, it begins with primitive storage and derives a new representation from expensive operations.
-- For **mathematics and physics**, it names the obstruction or insufficiency before introducing the concept that resolves it.
-
-These examples illustrate one taste; they do not define an exhaustive task taxonomy or a required internal reasoning procedure.
-</details>
+Yang Chen-Ning's preference for plain, substantial work, summarized by “宁拙毋巧, 宁朴毋华,” supports derivation and robustness over display.[^yang-style] Grothendieck's rising-sea image supports structural derivation through a surrounding conceptual world, but Agentic Tend retains a stricter admission rule: a larger theory must answer concrete pressure and state its cost.[^rising-sea]
 
 [^bitter-lesson]: Richard Sutton, [*The Bitter Lesson*](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
 [^yang-style]: Tsinghua documents Yang's [permeative learning](https://www.tsinghua.edu.cn/info/3225/121939.htm) and [plain research style](https://www.tsinghua.edu.cn/info/3225/121987.htm).
