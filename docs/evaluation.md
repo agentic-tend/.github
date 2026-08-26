@@ -25,6 +25,10 @@ Inspect available port inputs and outputs to distinguish genuine information sep
 
 ## Evaluate generative interaction
 
+Compare the candidate L0 and L1 context with the current baseline on representative interaction paths. A direct implementation request that selects or changes material state or data flow should expose the smallest pseudocode projection and continue within established authority. A discussion, clarification, or review request should expose the projection and pause with the earliest open user-owned question, or with a review invitation when the established contract leaves none open. A pseudocode-only request should resolve user-owned meaning exposed by the projection, deliver it as the result, and stop.
+
+Include controls for a mechanical edit, a factual explanation, and task data that already contains an equivalent structured projection. These paths should proceed through their ordinary capability logic. For interdependent user-owned semantics, verify that clarification updates one live contract projection, asks the earliest dependent question, continues after faithfully incorporating the answer, and returns only agent-added meaning for confirmation.
+
 Test reactive-defense behavior with a prior correction whose rejected alternative has no role in the next task and with a live adjacent alternative that still changes the outcome, authority, or acceptance evidence. The first should disappear from the generated response; the second should remain as a compact boundary connected to current task data. Judge the semantic outcome from the actual response rather than a required phrase or heading.
 
 [^scenario-evaluations]: The [Tessl documentation](https://docs.tessl.io/) describes [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios). It is a practical reference, not a project dependency or adopted benchmark.
