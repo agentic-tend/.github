@@ -69,4 +69,4 @@ Begin with an observed failure or repeated reconstruction cost. Ask whether the 
 
 ### When explaining Agentic Tend
 
-Start with the pressure, show the response it motivates, and state what that response does not decide. Point readers to the canonical owner instead of restating its full contract. The [documentation map](README.md) provides one-jump routing, and [capability composition examples](capability-composition.md) show how several owners can act on one task without becoming a fixed workflow.
+Start with the pressure and show the response it generates. Add a boundary when current task data contains a live adjacent action or interpretation that can change judgment, and route each remaining decision to its canonical owner. The [documentation map](README.md) provides one-jump routing, and [capability composition examples](capability-composition.md) show how several owners can act on one task.

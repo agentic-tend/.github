@@ -23,4 +23,8 @@ Compare it with both a single-agent baseline and naive agents that share the sam
 
 Inspect available port inputs and outputs to distinguish genuine information separation from fresh contexts that repeat the same method. Check whether disagreement, common-mode specification failure, unvalidated claims, and unavailable raw evidence remain visible rather than being hidden by agreement or a polished summary. The useful outcome is not agent count or agreement rate, but whether separation exposes a plausible failure and lowers the human effort needed to locate judgment-changing distinctions.
 
+## Evaluate generative interaction
+
+Test reactive-defense behavior with a prior correction whose rejected alternative has no role in the next task and with a live adjacent alternative that still changes the outcome, authority, or acceptance evidence. The first should disappear from the generated response; the second should remain as a compact boundary connected to current task data. Judge the semantic outcome from the actual response rather than a required phrase or heading.
+
 [^scenario-evaluations]: The [Tessl documentation](https://docs.tessl.io/) describes [scenario evaluations](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios). It is a practical reference, not a project dependency or adopted benchmark.
