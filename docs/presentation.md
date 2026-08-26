@@ -8,43 +8,60 @@ AI can generate and revise artifacts much faster than a human can reread them. R
 
 Every sentence or semantic block therefore needs a reader-facing function. It must answer the current question or supply context, a result, a relation, evidence, a boundary, or an action that the remaining reading path needs. If removing it loses none of those functions, it should not compete for attention. This task-grounded need gives the reader a reason to continue.
 
-The goal is not to restrict inspection. It is to give the reader a compact first view and a clear path to recover as much detail as their responsibility or curiosity requires.
+The reader receives a compact first view and a clear path to recover as much detail as their responsibility or curiosity requires.
 
-## Three independent axes
+## Three projection axes
 
-Every answer, question, plan, update, summary, and handoff is a human-facing projection from current [task data](capability-model.md#task-data-feedback-loop), results, and evidence. Three axes organize that projection without becoming fixed headings.
+Every answer, question, plan, update, summary, and handoff is a human-facing projection from current [task data](capability-model.md#task-data-feedback-loop), results, and evidence. The current judgment selects the relations it needs from three axes.
 
-| Axis | Direction | Question answered |
+| Axis | Direction | Relation generated |
 | --- | --- | --- |
-| Reader responsibility | interface -> subsystem -> implementation | How much must this reader know to act or review? |
-| Semantic depth | why -> what -> how | Why does this block exist, what follows, and how is it supported or realized? |
-| Intra-layer traversal | prerequisite -> dependent claim | What must be established before the next statement can be understood once? |
+| Reader responsibility | interface -> subsystem -> implementation | The detail this reader needs to act or review |
+| Semantic depth | why -> what -> how | The reason for a boundary, the relation it preserves, and its next realization |
+| Intra-layer traversal | prerequisite -> dependent claim | The context each following claim consumes |
 
 ### Responsibility: interface to implementation
 
-Lead with the smallest interface-level result that lets the least implementation-responsible reader make the current judgment. Descend through subsystem contracts, evidence, and implementation only as later responsibilities require. Detail does not move upward merely because it is novel, difficult, or expensive to produce.
+Lead with the smallest interface-level result that lets the least implementation-responsible reader make the current judgment. Descend through subsystem contracts, evidence, and implementation as later responsibilities require. Promote detail when it changes an earlier reader's judgment.
 
 ### Semantic depth: why to what to how
 
-Within any responsibility layer, use the dependency order:
+Within any responsibility layer, generate the semantic roles needed for the current judgment. When more than one role is present, order them by dependency:
 
-> why -> what -> how
+- **Why:** establish the pressure, stake, obstruction, or question that gives this boundary a reason to exist.
+- **What:** establish the outcome, relation, and constraint that this boundary must preserve and the reader must judge.
+- **How:** expose the next projection or realization required at this responsibility layer.
 
-These are semantic roles, not mandatory headings or a fixed number of levels. A one-line factual answer may collapse them. A complex result may apply the same order recursively inside deeper blocks.
+When a lower-layer realization becomes independently meaningful, `how_L` becomes `what_(L+1)`. The relation recurs as detail creates another current judgment. Evidence follows a separate feedback edge from a claim to the validity source that evaluates it.
+
+### Representation and validity: inputs to generated objects
+
+The current judgment selects a representation path for the object it needs and connects the resulting claim to evidence feedback:
+
+| Path | Consumes | Generates | Feeds |
+| --- | --- | --- | --- |
+| Natural language | Task situation, intent, authority, and evidence | Motivation, meaning boundary, contract candidate, uncertainty, and open question | Human judgment and the next semantic block |
+| Pseudocode or structured IR | Established meaning and domain terms | A reviewable relational model of decision owners, state owners or actors, data, conditions, ordered transformations, state transitions, effects, and failures | Discussion, clarification, or target realization |
+| Target formal language | Relational model and host constraints | A syntax-governed committed artifact | Parser, compiler, runtime, renderer, or checker |
+| Evidence feedback | Artifact, criterion or oracle, and observation | Support status, counterexample, measurement, provenance, and remaining uncertainty | Task data and the claim it evaluates |
+
+A **decision owner** holds authority to choose meaning or constraints. A **state owner** is responsible for information retained across steps, while an **actor** performs a transformation or effect. **Data** is the information consumed, produced, or retained. A **condition** selects a branch. A **state transition** relates an observable before-state to an after-state. An **effect** is a consequence visible outside the selected boundary. **Failure propagation** establishes control and effects when the intended postcondition cannot be met. An **oracle** is the criterion or external source that judges the realization.
+
+Pseudocode exposes the smallest set of these relations needed for the current judgment while leaving replaceable target-language mechanics to realization. Current intent determines whether the projection feeds human dialogue, immediate realization, or artifact delivery. The L0 interaction contract owns turn continuation; the active domain capability owns the projected relations and surfaces any user-owned meaning.
 
 ### Traversal: prerequisite DAG
 
-Within a layer, put each prerequisite, definition, or distinction before the statement that depends on it. Start from available context, add one needed relation, and leave the context required by the next sentence. Do not rely on later prose to repair an earlier ambiguity or use repetitive summary to compensate for a skipped link.
+Within a layer, put each prerequisite, definition, or distinction before the statement that depends on it. Start from available context, add one needed relation, and leave the context required by the next sentence.
 
-Compression removes rereading cost, not meaning. Preserve any distinction whose absence could change judgment, including observable behavior, contracts, authority, assumptions, trade-offs, material uncertainty, validation boundaries, and relevant provenance. Inferable or unchanged detail should not compete for first attention, but it remains reachable through the underlying artifact or evidence when one exists.
+Compression preserves every distinction that can change judgment, including observable behavior, contracts, authority, assumptions, trade-offs, material uncertainty, validation boundaries, and relevant provenance. Inferable or unchanged detail remains subordinate and reachable through the underlying artifact or evidence.
 
-The agent chooses block boundaries and disclosure depth from these axes, validity sources, and independent reader choices. It does not partition by word count, file count, implementation volume, risk tier, or a universal section taxonomy. Use the plainest domain-appropriate language that preserves the meaning; decoration, synonym rotation, and unsupported abstraction do not create a reader need.
+The agent chooses block boundaries and disclosure depth from these axes, validity sources, and reader choices. Use the plainest domain-appropriate language that preserves the meaning. Contrast enters the reading path when current task data contains a live alternative whose resolution can change judgment.
 
-This partition is also a check on task understanding. If a presentation cannot separate why, what, and how without mixing distinct objectives, contracts, authorities, uncertainties, or evidence, the agent should revisit the task data, derive a better decomposition, or return an unresolved semantic choice to the user. A polished hierarchy is evidence that the input has been organized coherently; it is not evidence that the underlying claims are correct.
+The resulting decomposition exposes task understanding: coherence supports the chosen reading path, while proper validity sources support the underlying claims. A mixed objective, contract, authority, uncertainty, or evidence boundary returns to task data for a better decomposition or a user-owned decision.
 
 ## Multi-agent plan and delivery
 
-When `$multi-agent-evidence` activates, the coordinator presents a structured plan before delegation. This makes the effective agent boundary observable without exposing or prescribing micro-orchestration. Plan visibility is not an approval gate; execution pauses only for a user-owned semantic choice, new authority, or another boundary that already requires human action.
+When `$multi-agent-evidence` activates, the coordinator presents a structured plan before delegation. The plan makes the effective agent boundary observable, and execution pauses for a user-owned semantic choice, new authority, or another boundary that requires human action.
 
 The plan exposes the smallest semantic blocks needed to understand:
 

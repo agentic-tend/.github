@@ -41,13 +41,19 @@ Generation is cheap, so an agent can continue adding checks, prose, abstractions
 
 A single artifact may raise independent questions about software behavior, scientific evidence, prose, and authorization. Assigning the whole task to one category either hides those differences or requires an ever-growing taxonomy. The capability model instead derives non-exhaustive traits from current task data and composes the applicable logic. [Generative dispatch](capability-model.md#generative-dispatch) owns this decision.
 
+### Formal realization needs a semantic bridge
+
+Natural language can establish motivation, meaning, and uncertainty while leaving ownership, data flow, conditions, transitions, effects, and failures implicit. A target formal language commits those relations together with host syntax and replaceable mechanics.
+
+When these relations change the current judgment, pseudocode or another structured intermediate representation exposes the smallest relational model needed for discussion or realization. The current request determines whether that projection feeds dialogue, authorized implementation, or artifact delivery, while evidence returns to the claim it evaluates. [Representation and validity](presentation.md#representation-and-validity-inputs-to-generated-objects) owns this projection.
+
 ### Some meaning must survive the task
 
 An LLM can infer many local facts again, but objectives, preferences, authority boundaries, and repository-specific decisions may be lost or reconstructed incorrectly. For a particular context candidate, context ownership tests whether that durable reconstruction gap justifies persistence. [The persistence loop](context-ownership.md#persistence-loop) owns that decision, while [placement and cache view](context-ownership.md#placement-and-cache-view) decides where the accepted context belongs and when it should load.
 
 ### Human review is the scarce resource
 
-An agent can produce more detail than a human can inspect. A useful answer therefore exposes the smallest result needed for the reader's current responsibility, then reveals motivation, mechanism, and evidence in prerequisite order. This changes presentation, not the underlying validity of a claim. [The three presentation axes](presentation.md#three-independent-axes) own that projection.
+An agent can produce more detail than a human can inspect. A useful answer therefore exposes the smallest result needed for the reader's current responsibility, then reveals motivation, mechanism, and evidence in prerequisite order. Proper validity sources continue to decide the underlying claims. [The three projection axes](presentation.md#three-projection-axes) own that reading path.
 
 ### More agents can repeat the same mistake
 

@@ -13,8 +13,12 @@ These defaults define observable task-grounding, presentation, and authority bou
 ## Present for human review
 
 - Give the reader the smallest result needed for their responsibility, then descend through dependent detail in prerequisite order. Retain the context, evidence, and boundaries needed to judge the result; use plain, **domain-appropriate** language, and let current source evidence override the presentation.
-- Order the presentation by `why -> what -> how`: establish the motivation, obstruction, or question and the smallest sufficient result before exposing structure, mechanism, implementation, and evidence.
-- Compress rereading cost, not meaning. Preserve distinctions whose absence could change judgment, including observable behavior, contracts, authority, assumptions, trade-offs, material uncertainty, validation boundaries, and relevant provenance. Keep inferable or unchanged detail subordinate but reachable through the underlying artifact or evidence when available.
+- Within each responsibility layer, generate the semantic roles needed for the current judgment and order the roles that are present by dependency:
+  - `why`: establish the pressure, stake, obstruction, or question that gives the boundary a reason to exist.
+  - `what`: establish the outcome, relation, and constraint that the current boundary must preserve and the reader must judge.
+  - `how`: expose the next projection or realization needed at this responsibility layer. That `how` becomes the `what` of the next layer, while evidence remains attached to the claim it evaluates.
+- Compress rereading cost while preserving every distinction that can change judgment, including observable behavior, contracts, authority, assumptions, trade-offs, material uncertainty, validation boundaries, and relevant provenance. Keep inferable or unchanged detail subordinate but reachable through the underlying artifact or evidence when available.
+- Choose each representation by what it must generate: natural language establishes motivation, meaning, authority, and uncertainty; pseudocode exposes stable logical and data relations; target formal language realizes selected relations under its grammar and applicable repository conventions.
 
 ## Route decisions and actions
 
