@@ -17,11 +17,11 @@ Scenario evaluations are one practical implementation of this method.[^scenario-
 
 ## Compare evidence separation
 
-Evaluate the observable effective boundary rather than hidden micro-orchestration. A successful multi-agent intervention presents its plan before delegation, activates only ports with a stated evidence motivation, preserves intended information boundaries, and returns a provenance-aware delivery without inventing an approval gate.
+Evaluate the observable effective boundary. A successful multi-agent intervention presents its plan before delegation, activates ports with a stated evidence motivation, preserves intended information boundaries, and returns a provenance-aware delivery within established authority.
 
 Compare it with both a single-agent baseline and naive agents that share the same narrative. Include negative controls where task size, importance, or latency-only parallelism must not activate evidence separation. Include positive cases where prior evidence remains independent of implementation, a task without a legitimate mechanical oracle does not fabricate one, and posterior review grows only when a failure hypothesis justifies another layer.
 
-Inspect available port inputs and outputs to distinguish genuine information separation from fresh contexts that repeat the same method. Check whether disagreement, common-mode specification failure, unvalidated claims, and unavailable raw evidence remain visible rather than being hidden by agreement or a polished summary. The useful outcome is not agent count or agreement rate, but whether separation exposes a plausible failure and lowers the human effort needed to locate judgment-changing distinctions.
+Inspect available port inputs and outputs to distinguish genuine information separation from fresh contexts that repeat the same method. A successful intervention keeps disagreement, common-mode specification failure, unvalidated claims, and unavailable raw evidence visible, exposes a plausible failure, and lowers the human effort needed to locate judgment-changing distinctions.
 
 ## Evaluate generative interaction
 

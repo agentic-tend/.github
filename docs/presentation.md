@@ -71,9 +71,9 @@ The plan exposes the smallest semantic blocks needed to understand:
 - the feedback edges and stopping evidence;
 - authority boundaries and claims that cannot yet be validated.
 
-These are not required headings. Collapse or arrange them according to their logical dependencies, but expose them before any delegation occurs.
+Arrange these blocks by their logical dependencies and combine blocks that serve the same judgment. Delegation begins after this effective boundary is visible.
 
-After execution, the delivery exposes the agents' effect on human judgment rather than concatenating their transcripts. A useful result may progressively disclose these semantic roles:
+After execution, the delivery exposes the agents' effect on human judgment. Expand the roles produced by current task data:
 
 ```text
 Why
@@ -85,14 +85,14 @@ Unvalidated
 Details
 ```
 
-This is an example projection, not a required template. Omit empty roles, collapse a simple result, and recursively expand a complex one. Agreement means that current claims and observations are compatible, not that they prove correctness. Disagreement and unvalidated claims appear in the earliest layer where they could change judgment.
+Omit empty roles, collapse a simple result, and recursively expand a complex one. Agreement records compatibility among current claims and observations. Proper validity sources determine their support. Disagreement and unvalidated claims appear in the earliest layer where they can change judgment.
 
-Details keep design, implementation, checks, falsification attempts, provenance, and accessible raw artifacts reachable without making agent transcripts the default reading surface. Link to available files, tool outputs, and lane evidence. If the runtime does not expose an underlying transcript or artifact, identify that audit gap instead of claiming complete traceability or creating a new transcript store.
+Details keep design, implementation, checks, falsification attempts, provenance, and accessible raw artifacts reachable. Link to available files, tool outputs, and lane evidence. An unavailable underlying transcript or artifact produces an explicit audit gap.
 
-Presentation compression and verification depth are independent: responsibility, authority, and the reader's questions determine how far to inspect, while the presentation preserves every available route needed to continue.
+Presentation compression and verification depth follow separate decisions: responsibility, authority, and the reader's questions determine how far to inspect, while the presentation preserves every available route needed to continue.
 
-## Inspection boundary
+## Validity and review path
 
-A presentation is a derived view, never a second source of truth. When it conflicts with current artifacts or evidence, their proper validity sources win.
+Current artifacts and their proper validity sources decide each claim. Presentation supplies the reading path and provenance needed to continue that judgment.
 
-Progressive disclosure governs ordering and compression, not access or review depth. The agent does not assign a risk score, declare a result safe enough to stop reading, or create a special presentation ontology for high-consequence work. The human retains the choice to follow every available provenance path, and unavailable evidence remains an explicit limitation.
+The human chooses review depth and may follow every available provenance path. Unavailable evidence remains an explicit limitation at the earliest layer where it can change judgment.
