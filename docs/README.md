@@ -24,14 +24,14 @@ The solid path follows behavior from admission through dispatch and, when needed
 
 ## Find the canonical owner
 
-| When this happens | Read | This file decides | It does not decide |
+| When this happens | Read | This file decides | Adjacent decision -> canonical owner |
 | --- | --- | --- | --- |
-| The agent may be acting without a material need, or may not know when to stop | [Principles](principles.md) | The general pressure threshold for behavior, including the requirement that persistence answer a real need | Which capability performs the work or whether a particular context candidate should persist |
-| One task contains several concerns that require different reusable judgments | [Capability model](capability-model.md) | How current task data produces pressure, traits, capability composition, and feedback | Whether a claim is true, an action is authorized, or context should persist |
-| Important meaning may be lost or repeatedly reconstructed across tasks | [Context ownership](context-ownership.md) | Whether a particular context candidate should persist and its owner, scope, activation, lifetime, and retrieval boundary | The general pressure threshold, fast task loop, or content of a domain decision |
-| A human needs a result without reading every implementation detail | [Presentation and human review](presentation.md) | How task state is projected by reader responsibility and prerequisite order | The validity of the underlying claim or who owns it |
-| Shared assumptions could make several agents repeat the same error | [Multi-agent evidence separation](multi-agent.md) | When information separation can create an independent validity source | Capability ownership, authority, or faster execution by itself |
-| A proposed persistent rule, skill, or context change may have costs or regressions | [Context evaluation](evaluation.md) | How to compare a context intervention with a baseline on observable outcomes | The general fast loop or all forms of software testing |
+| The agent may be acting without a material need, or may not know when to stop | [Principles](principles.md) | The general pressure threshold for behavior, including the requirement that persistence answer a real need | Capability selection -> [capability model](capability-model.md); persistence candidate -> [context ownership](context-ownership.md) |
+| One task contains several concerns that require different reusable judgments | [Capability model](capability-model.md) | How current task data produces pressure, traits, capability composition, and feedback | Claim validity -> its proper source; persistence -> [context ownership](context-ownership.md); human projection -> [presentation](presentation.md) |
+| Important meaning may be lost or repeatedly reconstructed across tasks | [Context ownership](context-ownership.md) | Whether a particular context candidate should persist and its owner, scope, activation, lifetime, and retrieval boundary | Fast task admission -> [principles](principles.md) and [capability model](capability-model.md) |
+| A human needs a result without reading every implementation detail | [Presentation and human review](presentation.md) | How task state is projected by reader responsibility and prerequisite order | Claim validity and authority -> their proper sources in task data |
+| Shared assumptions could make several agents repeat the same error | [Multi-agent evidence separation](multi-agent.md) | When information separation can create an independent validity source | Capability ownership -> [capability model](capability-model.md); action authority -> task data and the human owner |
+| A proposed persistent rule, skill, or context change may have costs or regressions | [Context evaluation](evaluation.md) | How to compare a context intervention with a baseline on observable outcomes | Fast task loop -> [capability model](capability-model.md); domain validation -> its owning capability or repository |
 
 [Capability composition](capability-composition.md) gives two derived examples of several operators acting on one task; it owns no additional theory. The [organization roadmap](roadmap.md) tracks changes that cross these owners.
 

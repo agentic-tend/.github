@@ -10,7 +10,7 @@ Agentic Tend helps a human use an LLM to act on the external world while keeping
 | LLM or agent | Open-ended inference, capability matching, and execution | It must inspect discoverable facts and stay within the established contract and authority |
 | External world | Artifacts, runtime state, tools, other actors, and action consequences | Observed state and evidence outrank an agent's account of them |
 
-These participants are not instances of one agent abstraction. They have different roles in the interaction. Agentic Tend's instructions and capability interfaces preserve those boundaries while giving the LLM enough freedom to match its behavior to the task. The harness is those persistent mechanisms together with their retrieval and routing. It conditions the interaction but is not a fourth participant.
+The interaction assigns distinct responsibilities to the human, the LLM or agent, and the external world. Agentic Tend's instructions and capability interfaces preserve those boundaries while giving the LLM enough freedom to match its behavior to the task. The harness is the persistent mechanisms that condition their interaction together with their retrieval and routing.
 
 ## One interaction loop
 
@@ -29,7 +29,7 @@ flowchart LR
     T -.->|Durable reconstruction gap| O[Persistent context]
 ```
 
-Task data is the current, source-grounded state of the work. A pressure is an unresolved relation within that state whose resolution could change the judgment, result, or authorized next action. Traits describe where that pressure occurs so the LLM can select reusable capability logic. Returned evidence changes task data, so the LLM must derive the remaining pressure again. Capability matching never turns a hypothesis into a fact or creates authority. The canonical loop is [Task-data feedback loop](capability-model.md#task-data-feedback-loop); the diagram above adds the three participants as a teaching projection.
+Task data is the current, source-grounded state of the work. A pressure is an unresolved relation within that state whose resolution could change the judgment, result, or authorized next action. Traits describe where that pressure occurs so the LLM can select reusable capability logic. Returned evidence changes task data, so the LLM derives the remaining pressure again. Facts retain their proper validity sources, and authority remains with the human or external boundary that supplies it. The canonical loop is [Task-data feedback loop](capability-model.md#task-data-feedback-loop); the diagram above adds the three participants as a teaching projection.
 
 ## Why each design exists
 
@@ -67,7 +67,7 @@ A rule or skill is an intervention: it may improve one task while adding retriev
 
 ### As a user
 
-State the outcome, relevant constraints, and any action you reserve for yourself. Provide the artifacts or external state that can decide the task. The LLM should inspect discoverable facts, expose the smallest useful result first, and return only unresolved choices that could materially change the contract. You do not need to select a capability for it.
+State the outcome, relevant constraints, and any action you reserve for yourself. Provide the artifacts or external state that can decide the task. The LLM inspects discoverable facts, derives the applicable capabilities, exposes the smallest useful result first, and returns unresolved choices that could materially change the contract.
 
 ### As a harness maintainer
 

@@ -20,7 +20,7 @@ This slow loop consumes evidence from current and later tasks. It does not dupli
 
 Place a durable item first by its validity owner and semantic scope, then choose an activation mechanism that makes it available at acceptable retrieval cost. Lifetime distinguishes a durable contract from transient state; activation distinguishes ambient loading from conditional retrieval.
 
-L0, L1, L2, and transient are cache and retrieval views, not a hierarchy of truth. An L0 rule is broader and loaded earlier than a repository fact, but it is not more valid. Every item remains answerable to its actual source.
+L0, L1, L2, and transient are cache and retrieval views. Breadth and load order follow retrieval need, while each item remains answerable to its actual validity source.
 
 | Cache view | Use when | Typical context and activation |
 | --- | --- | --- |
@@ -30,13 +30,13 @@ L0, L1, L2, and transient are cache and retrieval views, not a hierarchy of trut
 | L2 repository context | A fact, public contract, local workflow, or rationale is true or required for one repository | Repository `AGENTS.md`, local skill, or decision record according to activation need |
 | Transient state | A constraint, observation, hypothesis, or question belongs only to current work | Prompt, plan, issue, or another temporary surface |
 
-These views do not classify an entire task or file and do not prescribe execution order. One task may use repository facts, several conditional capabilities, and an ambient authority boundary at the same time.
+One task may compose repository facts, several conditional capabilities, and an ambient authority boundary from these views at the same time.
 
-A repository needs no `AGENTS.md`, `decisions/`, local skill, hook, or CI check when no evidence crosses its creation threshold.
+When the creation threshold is unmet, the persistence result is zero new `AGENTS.md`, decisions, local skills, hooks, or CI checks.
 
 ## Activation and enforcement
 
-Activation answers when context becomes available, not whether its content concerns the acting subject, an operation (predicate), or the targeted object. `Ambient` is reserved here for body content loaded by scope without task-specific retrieval. Skill descriptions support dispatch before skill bodies load; semantic documents are retrieved when their question matters; tests, hooks, and CI run through execution or events.
+Activation answers when context becomes available. `Ambient` means body content loaded by scope without task-specific retrieval. Skill descriptions support dispatch before skill bodies load; semantic documents are retrieved when their question matters; tests, hooks, and CI run through execution or events.
 
 `README.md` is repository-discovery infrastructure rather than ambient context. Its conventional name makes directory meaning and navigation discoverable before or alongside capability dispatch; the global rule owns only that retrieval protocol, while each README's content remains repository-owned task data and must be checked against current state.[^readme-discovery]
 
@@ -54,17 +54,17 @@ Tests, hooks, and CI are authoritative for the mechanically decidable predicates
 
 [`config/codex/AGENTS.global.md`](../config/codex/AGENTS.global.md) is the public, version-controlled source for the L0 Codex baseline inside a local working tree of `agentic-tend/.github`. `~/.codex/` is Codex's machine-local runtime directory. Linking its `AGENTS.md` to the versioned source exposes the public baseline while leaving `config.toml`, permissions, credentials, sessions, logs, and databases unversioned.
 
-The same L0 meaning may support a future agent runtime by reference or adaptation, with that runtime adding only the discovery and routing required by its own model. Do not extract an agent-neutral base until a second runtime creates concrete pressure.
+When another agent runtime creates concrete pressure, it may reference or adapt the same L0 meaning and add the discovery and routing required by its own model.
 
 Agents read global guidance before more specific repository instructions, so repository `AGENTS.md` files add local context rather than copy L0 or L1 policy.[^agents-discovery]
 
 ## Conditional capabilities
 
-Skills use progressive disclosure. Agents initially see skill names and descriptions, then load full instructions when a trait matches[^skill-invocation]. These descriptions are predicates over task traits. They are not membership rules for exclusive task classes.
+Skills use progressive disclosure. Agents initially see skill names and descriptions, then load full instructions when a trait matches[^skill-invocation]. These descriptions are predicates over task traits and can compose on one task.
 
-Each selected capability encapsulates reusable judgment for its concern. Activation does not make it authoritative for task facts, contracts, evidence, or user-owned decisions; it only makes its logic available. The [capability model](capability-model.md) owns composition over shared task data and contracts.
+Each selected capability encapsulates reusable judgment for its concern. Activation makes its logic available, while task facts, contracts, evidence, and user-owned decisions retain their proper sources. The [capability model](capability-model.md) owns composition over shared task data and contracts.
 
-The [multi-agent evidence model](multi-agent.md) owns the public effective theory for separating execution contexts, the [presentation model](presentation.md#multi-agent-plan-and-delivery) owns the human-visible plan and delivery, and `$multi-agent-evidence` owns conditional realization. Separate contexts and feedback edges do not merge semantic owners or prescribe an internal trajectory.
+The [multi-agent evidence model](multi-agent.md) owns the public effective theory for separating execution contexts, the [presentation model](presentation.md#multi-agent-plan-and-delivery) owns the human-visible plan and delivery, and `$multi-agent-evidence` owns conditional realization. Their context and feedback edges preserve the selected capabilities' semantic owners.
 
 ## One canonical source
 

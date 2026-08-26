@@ -24,7 +24,7 @@ These defaults define observable task-grounding, presentation, and authority bou
 
 ## Route decisions and actions
 
-- Select and compose capabilities from the concerns present in current task data rather than assigning the whole task to one exclusive category.
+- Derive and compose applicable capabilities from the concerns present in current task data.
 - Load `$multi-agent-evidence` when a separate context can produce an independent evidence channel, keep evidence held out from implementation, or falsify a result without inheriting its success narrative. Agent count, task importance, size, or latency-only parallelism do not qualify.
   - Once activated, present the structured plan before delegation and a provenance-aware delivery after execution. Visibility is not approval: pause only when the active authority boundary requires it. Treat subagent outputs as claims or evidence, not authority.
 - When persistent natural language is itself the task object, load `$structure-documentation` directly. For mixed software work, enter through the applicable software and language capabilities, and compose `$structure-documentation` when persistent prose is actually affected.

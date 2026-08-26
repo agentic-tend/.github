@@ -18,7 +18,7 @@ flowchart LR
 
 Task data includes the request, current artifacts, runtime state, observed evidence, and established objectives, contracts, and authority. Pressure is a derived unresolved relation between that data and what the task requires. It determines whether behavior is needed only when resolving it could change the current judgment, outcome, or authorized next action.
 
-Pressure is not a new fact in the data plane. A missing fact, suspected defect, or proposed risk remains a hypothesis until its proper validity source supports it. Pressure may justify a probe of that hypothesis, but it cannot establish the answer or grant authority.
+Pressure is a temporary relation in the data plane. A missing fact, suspected defect, or proposed risk remains a hypothesis until its proper validity source supports it. Pressure may justify a probe, while the resulting evidence and established authority decide the answer and permitted action.
 
 Evidence produced by an authorized action returns to task data. Pressure and dispatch traits are then derived again, so the composition may continue, change, request a user-owned decision, or stop. This is the only general fast loop in the public model.
 
@@ -26,25 +26,25 @@ Evidence produced by an authorized action returns to task data. Pressure and dis
 
 Task data holds the current state of the work: the request, artifacts, runtime observations, evidence, contracts, and authority. Each item retains its own validity source rather than becoming true because the harness stored it.
 
-Pressure and dispatch traits are temporary views derived from that state. Pressure explains why behavior may be needed now; traits describe the features relevant to choosing logic. Neither is a second fact store, and both must be derived again when the state changes.
+Pressure and dispatch traits are temporary views derived from that state. Pressure explains why behavior may be needed now; traits describe the features relevant to choosing logic. Task data remains the fact store, and both views are derived again when the state changes.
 
-Capability interfaces and capability logic hold reusable judgment. An interface states when the logic applies and its negative boundary; the logic supplies the applicable reasoning or realization. They consume task data without owning its facts, contracts, or authority.
+Capability interfaces and capability logic hold reusable judgment. An interface states the traits that select the logic and any adjacent case that requires another route; the logic supplies the applicable reasoning or realization. Facts, contracts, and authority retain their sources in task data.
 
-An authorized action produces a result or evidence. That evidence returns to task data, where it can remove the pressure, change the required capability composition, expose a user-owned choice, or justify another action. Sharing task data and returned evidence between capabilities does not merge their semantic owners.
+An authorized action produces a result or evidence. That evidence returns to task data, where it can remove the pressure, change the required capability composition, expose a user-owned choice, or justify another action. Each contributed decision retains its semantic owner.
 
 ## Generative dispatch
 
-Traits are non-exhaustive projections, not a closed taxonomy. Depending on the task, useful traits may describe the operated object, requested action, independent concern, governing contract, evidence need, uncertainty, or authority boundary. The model may derive other features when they better distinguish applicable logic.
+Traits form an open projection of current task data. Depending on the task, useful traits may describe the operated object, requested action, independent concern, governing contract, evidence need, uncertainty, authority boundary, or another feature that distinguishes applicable logic.
 
-The same object can create different pressure and therefore dispatch different capabilities. Several independent concerns on one object can compose several capabilities. Dispatch makes logic applicable; it does not establish a fact, contract, authorization, or test result.
+The same object can create different pressure and therefore dispatch different capabilities. Several independent concerns on one object can compose several capabilities. Dispatch supplies applicable logic, while facts, contracts, authorization, and test results remain task data from their proper sources.
 
 One agent may compose several capabilities, and one capability may be used in several contexts. When information separation can create another validity source, the [multi-agent evidence model](multi-agent.md) may project temporary agent ports over the same task data. Human-facing ordering remains owned by the [presentation model](presentation.md), while persistence and activation remain owned by [context ownership](context-ownership.md). Two concrete compositions appear in [capability composition](capability-composition.md).
 
 ## Bounded pattern-matching and compiler profiles
 
-Pattern matching describes the dispatch edge: current task data is projected into traits, then matched against open capability interfaces. It does not reduce work to a finite task classifier.
+Pattern matching describes the dispatch edge: current task data is projected into traits, then matched against open capability interfaces that can grow with new distinguishing pressure.
 
-One iteration can also be viewed as a probabilistic, compiler-like transformation from task data and capability interfaces to an answer, artifact, tool action, or evidence. Unlike a conventional compiler, neither the input nor the output has a fixed abstraction level, and semantic correctness still comes from the task's proper validity sources. Research systems that use compiler-inspired orchestration or prompt compilation support this analogy without making an LLM literally a compiler.[^llmcompiler][^dspy][^lmql][^grammar-decoding]
+One iteration can also be viewed as a probabilistic, compiler-like transformation from task data and capability interfaces to an answer, artifact, tool action, or evidence. Its input and output may occupy different abstraction levels, while semantic correctness comes from the task's proper validity sources. Research systems that use compiler-inspired orchestration or prompt compilation support this transformation view.[^llmcompiler][^dspy][^lmql][^grammar-decoding]
 
 Across iterations, observations, computation, action, and returned evidence form a closed loop. Feedback theory supports that general topology; it does not establish stability, convergence, or optimality for this harness.[^feedback-systems]
 
